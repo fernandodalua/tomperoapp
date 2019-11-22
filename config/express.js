@@ -3,6 +3,7 @@ const consign = require('consign');
 const bodyParser = require('body-parser');
 const path = require('path');
 const session = require('express-session');
+const fs = require('fs');
 
 module.exports = () => {
 	const app = express();
