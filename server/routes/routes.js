@@ -27,7 +27,7 @@ module.exports = app => {
 		res.render('index')
 	});
 	
-	app.get('/new', (req, res) => {  		
+	app.get('/new', (req, res) => {
 		res.render('new')
 	});
 
