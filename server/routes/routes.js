@@ -126,7 +126,7 @@ module.exports = app => {
 				});
 				setTimeout(function() {
 					response.render('home', {account: account, feed: feed});
-				}, 3000);				
+				}, 2000);				
 			});
 		});		
 	});
