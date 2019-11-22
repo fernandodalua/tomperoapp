@@ -23,7 +23,7 @@ module.exports = app => {
 				if (results.length > 0) {
 					request.session.loggedin = true;
 					request.session.username = username;
-					response.render('home');
+					response.render('home', {account: results[0]});
 				} else {
 					response.send('Incorrect Username and/or Password!');
 				}
