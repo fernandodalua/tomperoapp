@@ -16,14 +16,14 @@ module.exports = app => {
 		let username = request.body.username;
 		let password = request.body.password;
 		
-		let userQuery = "SELECT fullname, password, username FROM accounts WHERE username = '"+ username +"' AND password = '"+ password +"'";
+		let userQuery = "SELECT * FROM accounts WHERE username = '"+ username +"' AND password = '"+ password +"'";
 		
 		if (username && password) {
 			db.query(userQuery, (error, results) => {
 				if (results.length > 0) {
 					request.session.loggedin = true;
 					request.session.username = username;
-					response.render('home', {account: results[0]});
+					response.render('home', {account: results});
 				} else {
 					response.send('Incorrect Username and/or Password!');
 				}
