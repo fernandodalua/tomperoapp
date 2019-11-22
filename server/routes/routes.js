@@ -46,7 +46,9 @@ module.exports = app => {
 		
 		let userQuery = "INSERT INTO publications values ("+id_user+", NOW(), '"+message+"')"
 		db.query(userQuery, (error, results) => {
-			response.send('Erro: '+error);
+			if (error){
+				response.send('Erro: '+error);
+			}
 			response.render('home', {account: account});
 		});		
 	});
