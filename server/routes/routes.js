@@ -19,7 +19,7 @@ module.exports = app => {
 		let username = request.body.username;
 		let password = request.body.password;
 		
-		let userQuery = "SELECT id, username, password, email, fullname, sex, YEAR(FROM_DAYS(TO_DAYS(NOW())-TO_DAYS(birthday))) as idade, description AS idade FROM accounts WHERE username = '"+ username +"' AND password = '"+ password +"'";
+		let userQuery = "SELECT id, username, password, email, fullname, sex, YEAR(FROM_DAYS(TO_DAYS(NOW())-TO_DAYS(birthday))) AS idade, description FROM accounts WHERE username = '"+ username +"' AND password = '"+ password +"'";
 		
 		if (username && password) {
 			db.query(userQuery, (error, results) => {
