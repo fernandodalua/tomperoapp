@@ -44,8 +44,9 @@ module.exports = app => {
 		let message = request.body.message;
 		let id_user = request.session.id;
 		
-		let userQuery = "INSERT INTO publications (id_account, date_post, post) values ('"+id_user+"', now(), '"+message+"')"
+		let userQuery = "INSERT INTO publications (id_account, date_post, post) values ('"+id_user+"', NOW(), '"+message+"')"
 		db.query(userQuery, (error, results) => {
+			response.send('Incorrect Username and/or Password!'+error);
 			response.render('home', {account: account});
 		});		
 	});
