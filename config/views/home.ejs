@@ -125,7 +125,7 @@
 			<ul class="timeline">
 				<% for(var i = 0; i < feed.length; i++){ %>
 				<li>
-					<a target="_blank" href="#"><%= feed[i].fullname %></a>
+					<a href="#"><%= feed[i].fullname %></a>
 					<a href="#" class="float-right"><%= feed[i].date_post %></a>
 					<p><%= feed[i].post %></p>
 					<%if (feed[i].photo) { %>
