@@ -69,7 +69,7 @@ module.exports = app => {
 					response.send('Erro: '+error +' '+ id_publication +' '+ file.filename +' '+ userQuery);
 				}
 				response.render('home', {account: account});
-			}
+			});
 		});		
 	});
 }
