@@ -67,11 +67,7 @@ module.exports = app => {
 		
 		if (username && password) {
 			db.query(userQuery, (error, results) => {
-				if (results.length > 0) {
-					request.session.loggedin = true;
-					request.session.username = username;
-					request.session.id_user = results[0].id_user;
-					account = results;
+				if (results.length > 0) {					
 					response.render('home', {account: results, feed: feed});
 				} else {
 					response.send('Incorrect Username and/or Password!');
