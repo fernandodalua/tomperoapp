@@ -25,7 +25,8 @@ module.exports = app => {
 			db.query(userQuery, (error, results) => {
 				if (results.length > 0) {
 					request.session.loggedin = true;
-					request.session.username = username;					
+					request.session.username = username;
+					account = results;
 					response.render('home', {account: results});
 				} else {
 					response.send('Incorrect Username and/or Password!');
@@ -39,6 +40,6 @@ module.exports = app => {
 	});
 	
 	app.post('/post', function(request, response) {
-		//response.render('home', {account: results});
+		response.render('home', {account: account});
 	});
 }
