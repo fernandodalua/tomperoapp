@@ -23,9 +23,12 @@ module.exports = app => {
 	var account = [];
 	var feed = [];
 	
-	app.get('/', (req, res) => {
-  		//res.json({ status: 'Server is running!' })
+	app.get('/', (req, res) => {  		
 		res.render('index')
+	});
+	
+	app.get('/new', (req, res) => {  		
+		res.render('new')
 	});
 
 	app.post('/auth', function(request, response) {
