@@ -115,7 +115,8 @@ module.exports = app => {
 				response.send('Erro: '+error +' '+ id_user +' '+ message +' '+ userQuery);
 			}
 			let id_publication = results.insertId;
-			if (file.filename){
+			//if (file.filename){
+			response.send(file.filename);
 			let userPhoto = "INSERT INTO photo_publications (id_publication, photo) values ("+id_publication+", '"+file.filename+"')";
 				db.query(userPhoto, (error, results) => {
 					if (error){
@@ -129,9 +130,9 @@ module.exports = app => {
 						response.render('home', {account: account, feed: feed});
 					}, 2000);				
 				});
-			}else{
-				response.render('home', {account: account, feed: feed});
-			}
+			//}else{
+			//	response.render('home', {account: account, feed: feed});
+			//}
 		});		
 	});
 }
