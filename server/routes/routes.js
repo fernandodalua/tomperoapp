@@ -124,8 +124,9 @@ module.exports = app => {
 				db.query(feedQuery, (error, results) => {
 					feed = results;
 				});
-				
-				response.render('home', {account: account, feed: feed});
+				setTimeout(function() {
+					response.render('home', {account: account, feed: feed});
+				}, 3000);				
 			});
 		});		
 	});
