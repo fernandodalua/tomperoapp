@@ -1,15 +1,125 @@
-<!DOCTYPE html>
-<html>
-<head>
-     <title>TomperoApp</title>
-     <link rel="stylesheet" type="text/css" href="/css/style.css" />
-</head>
-<body>
-     <div id="historico_mensagens"></div>
-     <form id=’chat’>
-         <input type='text' id='texto_mensagem' name='texto_mensagem' />
-         <input type='submit' value='Enviar mensagem!' />    
-     </form>
 
-</body>
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
+
+    <title>TomperoApp</title>    
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">    
+
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+
+  <body>
+
+    <header>
+      <!-- Fixed navbar -->
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">               
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        	<span class="navbar-toggler-icon"></span>
+        </button>        
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          	<ul class="navbar-nav">
+            	<li class="nav-item active">
+              		<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            	</li>
+            	<li class="nav-item">
+              		<a class="nav-link" href="#">Link</a>
+            	</li>
+            	<li class="nav-item">
+              		<a class="nav-link disabled" href="#">Disabled</a>
+            	</li>
+          	</ul>          
+        </div>
+        <form class="form-inline">
+        	<div class="input-group">
+           		<input class="form-control" type="text" placeholder="Pesquise por receitas, pessoas, etc ..." aria-label="Pesquise por receitas, pessoas, etc ...">
+           		<div class="input-group-append">
+           			<button class="btn btn-outline-secondary" type="submit">Search</button>
+           		</div>
+           	</div>
+        </form>
+      </nav>
+    </header>
+
+    <!-- Begin page content -->
+    <main role="main" class="container">
+    <div class="container mt-5 mb-5">
+	<div class="row mb-3">
+		<div class="col-md-3">
+			<div class="card flex-md-row mb-4 box-shadow h-md-250">
+	            <div class="card-body d-flex flex-column align-items-start">
+	            	<img src="img/tompero.jpg" class="rounded-circle img-thumbnail" alt="Cinque Terre">
+					<strong class="d-inline-block mb-2 text-primary">World</strong>
+					<h3 class="mb-0">
+						<a class="text-dark" href="#">Featured post</a>
+					</h3>
+					<div class="mb-1 text-muted">Nov 12</div>
+					<p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+					<a href="#">Continue reading</a>
+	            </div>	                           
+          	</div>
+		</div>
+		<div class="col-md-6">
+			<h4>Latest News</h4>
+			<ul class="timeline">
+				<li>
+					<a target="_blank" href="https://www.totoprayogo.com/#">New Web Design</a>
+					<a href="#" class="float-right">21 March, 2014</a>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque scelerisque diam non nisi semper, et elementum lorem ornare. Maecenas placerat facilisis mollis. Duis sagittis ligula in sodales vehicula....</p>
+				</li>
+				<li>
+					<a href="#">21 000 Job Seekers</a>
+					<a href="#" class="float-right">4 March, 2014</a>
+					<p>Curabitur purus sem, malesuada eu luctus eget, suscipit sed turpis. Nam pellentesque felis vitae justo accumsan, sed semper nisi sollicitudin...</p>
+				</li>
+				<li>
+					<a href="#">Awesome Employers</a>
+					<a href="#" class="float-right">1 April, 2014</a>
+					<p>Fusce ullamcorper ligula sit amet quam accumsan aliquet. Sed nulla odio, tincidunt vitae nunc vitae, mollis pharetra velit. Sed nec tempor nibh...</p>
+				</li>
+			</ul>
+		</div>
+		<div class="col-md-3">
+			<div class="card flex-md-row mb-4 box-shadow h-md-250">
+	            <div class="card-body d-flex flex-column align-items-start">
+		            <strong class="d-inline-block mb-2 text-primary">World</strong>
+		            <h3 class="mb-0">
+		            	<a class="text-dark" href="#">Featured post</a>
+		            </h3>
+		            <div class="mb-1 text-muted">Nov 12</div>
+		            <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+		            <a href="#">Continue reading</a>
+	            </div>            
+          	</div>
+		</div>
+	</div>
+	</div>
+
+    
+      <h1 class="mt-5">Sticky footer with fixed navbar</h1>
+      <p class="lead">Pin a fixed-height footer to the bottom of the viewport in desktop browsers with this custom HTML and CSS. A fixed navbar has been added with <code>padding-top: 60px;</code> on the <code>body &gt; .container</code>.</p>
+      <p>Back to <a href="../sticky-footer/">the default sticky footer</a> minus the navbar.</p>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <!-- FOOTER -->
+      </div>
+    </footer>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>    
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>    
+  </body>
 </html>
