@@ -55,7 +55,7 @@ module.exports = app => {
 		});
 	});
 	
-	app.post('/home', function(request, response) {		
+	app.get('/home', function(request, response) {		
 		let id_user = request.session.id_user;
 		
 		let userQuery = "SELECT a.id as id_user, a.username, a.password, a.email, a.fullname, a.sex, YEAR(FROM_DAYS(TO_DAYS(NOW())-TO_DAYS(a.birthday))) AS idade, a.description, p.profile, a.photo FROM accounts a inner join profile p on a.id_profile = p.id WHERE a.id = '"+ id_user +"'";
