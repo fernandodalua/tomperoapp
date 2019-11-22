@@ -74,7 +74,7 @@ module.exports = app => {
 				if (error){
 					response.send('Erro: '+error +' '+ id_publication +' '+ file.filename +' '+ userQuery);
 				}
-				response.render('home', {account: account});
+				response.render('home', {account: account, feed: feed});
 			});
 		});		
 	});
