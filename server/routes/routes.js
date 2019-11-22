@@ -22,13 +22,19 @@ module.exports = app => {
 	
 	var account = [];
 	var feed = [];
+	var profile = [];
 	
 	app.get('/', (req, res) => {  		
 		res.render('index')
 	});
 	
 	app.get('/new', (req, res) => {
-		res.render('new')
+		let userQuery = "SELECT id as id_profile, profile FROM profile";
+		db.query(userQuery, (error, results) => {
+			profile = results;
+		});
+		
+		res.render('new', {profile: profile})
 	});
 
 	app.post('/auth', function(request, response) {

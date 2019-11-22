@@ -35,7 +35,7 @@
 	<article class="card-body mx-auto" style="max-width: 400px;">
 	<h4 class="card-title mt-3 text-center">Cadastre-se</h4>
 	<p class="text-center">Crie uma conta gratuita</p>
-	<form>
+	<form action="authnew" method="POST">
 	<div class="form-group input-group">
 		<div class="input-group-prepend">
 		    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
@@ -61,11 +61,11 @@
     	<div class="input-group-prepend">
 		    <span class="input-group-text"> <i class="fa fa-building"></i> </span>
 		</div>
-		<select class="form-control">
+		<select class="form-control">			
 			<option selected=""> Manda bem na cozinha ?</option>
-			<option>Designer</option>
-			<option>Manager</option>
-			<option>Accaunting</option>
+			<% for(var i = 0; i < profile.length; i++){ %>
+			<option value="<%= profile[i].id_profile %> "><%= profile[i].profile %></option>
+			<% } %>
 		</select>
 	</div> <!-- form-group end.// -->
     <div class="form-group input-group">
