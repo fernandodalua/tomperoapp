@@ -44,7 +44,7 @@ module.exports = app => {
 		let message = request.body.message;
 		let id_user = request.session.id;
 		
-		let userQuery = "INSERT INTO publications values ('"+id_user+"', now(), '"+message+"')"
+		let userQuery = "INSERT INTO publications (id_account, date_post, post) values ('"+id_user+"', now(), '"+message+"')"
 		db.query(userQuery, (error, results) => {
 			response.render('home', {account: account});
 		});		
