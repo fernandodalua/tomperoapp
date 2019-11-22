@@ -26,6 +26,7 @@ module.exports = app => {
 				if (results.length > 0) {
 					request.session.loggedin = true;
 					request.session.username = username;
+					request.session.id = results[0].id;
 					account = results;
 					response.render('home', {account: results});
 				} else {
@@ -41,7 +42,7 @@ module.exports = app => {
 	
 	app.post('/post', function(request, response) {
 		let message = request.body.message;
-		let id_user = account[0].id;
+		let id_user = request.session.id;
 		
 		let userQuery = "INSERT INTO publications values ('"+id_user+"', now(), '"+message+"')"
 		db.query(userQuery, (error, results) => {
