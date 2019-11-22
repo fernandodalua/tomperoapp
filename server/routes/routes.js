@@ -49,8 +49,9 @@ module.exports = app => {
 		db.query(newUser, (error, results) => {
 			if (error){
 				response.send('Erro: '+error +' '+ profile +' '+ username +' '+ newUser);
-			}
-			response.render('index');
+			}else{
+				response.render('index');
+			}			
 		});
 	});
 
