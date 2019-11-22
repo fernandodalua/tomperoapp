@@ -1,5 +1,5 @@
 const mysql = require('mysql');
-var connection = mysql.createConnection({
+var db = mysql.createConnection({
         host     : 'localhost',
         user     : 'root',
         password : 'dalua123',
@@ -13,10 +13,13 @@ module.exports = app => {
 	});
 
 	app.post('/auth', function(request, response) {
-		var username = request.body.username;
-		var password = request.body.password;
+		let username = request.body.username;
+		let password = request.body.password;
+		
+		let userQuery = "SELECT fullname, password, username FROM accounts WHERE username = '"+ username +"' AND password = '"+ password +"'";
+		
 		if (username && password) {
-			connection.query('SELECT fullname, password, username FROM accounts WHERE username = ? AND password = ?', [username, password], function(error, results, fields) {
+			db.query(userQuery, (error, results) => {
 				if (results.length > 0) {
 					request.session.loggedin = true;
 					request.session.username = username;
