@@ -31,8 +31,7 @@ module.exports = app => {
 					response.render('home', {account: results});
 				} else {
 					response.send('Incorrect Username and/or Password!');
-				}
-				//response.end();
+				}				
 			});
 		} else {
 			response.send('Please enter Username and Password!');
@@ -40,7 +39,7 @@ module.exports = app => {
 		}
 	});
 	
-	app.post('/post', function(request, response) {
+	app.post('/post', upload.single('file'), (request, response) => {
 		let message = request.body.message;
 		let id_user = request.session.id_user;
 		
