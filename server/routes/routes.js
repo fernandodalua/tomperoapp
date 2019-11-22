@@ -27,11 +27,10 @@ module.exports = app => {
 					request.session.loggedin = true;
 					request.session.username = username;					
 					response.render('home', {account: results});
-					console.log(account);
 				} else {
 					response.send('Incorrect Username and/or Password!');
 				}
-				response.end();
+				//response.end();
 			});
 		} else {
 			response.send('Please enter Username and Password!');
