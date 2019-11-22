@@ -21,6 +21,7 @@ var db = mysql.createConnection({
 module.exports = app => {
 	
 	var account = [];
+	var feed = [];
 	
 	app.get('/', (req, res) => {
   		//res.json({ status: 'Server is running!' })
@@ -32,6 +33,11 @@ module.exports = app => {
 		let password = request.body.password;
 		
 		let userQuery = "SELECT a.id as id_user, a.username, a.password, a.email, a.fullname, a.sex, YEAR(FROM_DAYS(TO_DAYS(NOW())-TO_DAYS(a.birthday))) AS idade, a.description, p.profile, a.photo FROM accounts a inner join profile p on a.id_profile = p.id WHERE a.username = '"+ username +"' AND a.password = '"+ password +"'";
+		let feed = "SELECT * FROM publications"
+		
+		db.query(feed, (error, results) => {
+			feed = results;
+		});
 		
 		if (username && password) {
 			db.query(userQuery, (error, results) => {
@@ -40,7 +46,7 @@ module.exports = app => {
 					request.session.username = username;
 					request.session.id_user = results[0].id_user;
 					account = results;
-					response.render('home', {account: results});
+					response.render('home', {account: results, feed: feed});
 				} else {
 					response.send('Incorrect Username and/or Password!');
 				}				
