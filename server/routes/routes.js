@@ -40,6 +40,12 @@ module.exports = app => {
 	});
 	
 	app.post('/post', function(request, response) {
-		response.render('home', {account: account});
+		let message = request.body.message;
+		let id_user = account[0].id;
+		
+		let userQuery = "INSERT INTO publications values ('"+id_user+"', now(), '"+message+"')"
+		db.query(userQuery, (error, results) => {
+			response.render('home', {account: account});
+		}		
 	});
 }
