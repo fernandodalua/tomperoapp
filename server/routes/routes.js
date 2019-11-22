@@ -36,6 +36,23 @@ module.exports = app => {
 		
 		res.render('new', {profile: profile})
 	});
+	
+	app.get('/authnew', (req, res) => {
+		let fullname = request.body.fullname;
+		let email = request.body.email;
+		let telefone = request.body.telefone;
+		let profile = request.body.profile;
+		let password = request.body.password;
+		let username = request.body.username;
+		
+		let newUser = "INSERT INTO accounts (username, password, email, fullname, id_profile) values ('"+username+"', '"+password+"', '"+email+"', '"+fullname+"', "+profile+")";
+		db.query(newUser, (error, results) => {
+			if (error){
+				response.send('Erro: '+error +' '+ profile +' '+ username +' '+ newUser);
+			}
+			response.render('index');
+		});
+	});
 
 	app.post('/auth', function(request, response) {
 		let username = request.body.username;
