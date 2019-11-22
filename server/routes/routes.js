@@ -65,18 +65,13 @@ module.exports = app => {
 			feed = results;
 		});
 		
-		if (username && password) {
-			db.query(userQuery, (error, results) => {
-				if (results.length > 0) {					
-					response.render('home', {account: results, feed: feed});
-				} else {
-					response.send('Incorrect Username and/or Password!');
-				}				
-			});
-		} else {
-			response.send('Please enter Username and Password!');
-			response.end();
-		}
+		db.query(userQuery, (error, results) => {
+			if (results.length > 0) {					
+				response.render('home', {account: results, feed: feed});
+			} else {
+				response.send('Incorrect Username and/or Password!');
+			}				
+		});
 	});
 
 	app.post('/auth', function(request, response) {
