@@ -115,7 +115,8 @@ module.exports = app => {
 				response.send('Erro: '+error +' '+ id_user +' '+ message +' '+ userQuery);
 			}
 			let id_publication = results.insertId;			
-			let userPhoto = "INSERT INTO photo_publications (id_publication, photo) values ("+id_publication+", '"+file.filename+"')";
+			if(!file.filename){
+				let userPhoto = "INSERT INTO photo_publications (id_publication, photo) values ("+id_publication+", '"+file.filename+"')";
 				db.query(userPhoto, (error, results) => {
 					if (error){
 						response.send('Erro: '+error +' '+ id_publication +' '+ file.filename +' '+ userQuery);
@@ -128,6 +129,7 @@ module.exports = app => {
 						response.render('home', {account: account, feed: feed});
 					}, 2000);				
 				});			
+			}
 		});		
 	});
 }
