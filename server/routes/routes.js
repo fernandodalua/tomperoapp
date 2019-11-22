@@ -115,19 +115,23 @@ module.exports = app => {
 				response.send('Erro: '+error +' '+ id_user +' '+ message +' '+ userQuery);
 			}
 			let id_publication = results.insertId;
+			if (file.filename){
 			let userPhoto = "INSERT INTO photo_publications (id_publication, photo) values ("+id_publication+", '"+file.filename+"')";
-			db.query(userPhoto, (error, results) => {
-				if (error){
-					response.send('Erro: '+error +' '+ id_publication +' '+ file.filename +' '+ userQuery);
-				}
-				let feedQuery = "SELECT c.fullname, date_format(p.date_post, '%d/%m/%Y %H:%m:%s') as date_post, p.post, f.photo FROM publications p inner join accounts c on p.id_account = c.id left join photo_publications f on p.id = f.id_publication order by p.date_post desc";		
-				db.query(feedQuery, (error, results) => {
-					feed = results;
+				db.query(userPhoto, (error, results) => {
+					if (error){
+						response.send('Erro: '+error +' '+ id_publication +' '+ file.filename +' '+ userQuery);
+					}
+					let feedQuery = "SELECT c.fullname, date_format(p.date_post, '%d/%m/%Y %H:%m:%s') as date_post, p.post, f.photo FROM publications p inner join accounts c on p.id_account = c.id left join photo_publications f on p.id = f.id_publication order by p.date_post desc";		
+					db.query(feedQuery, (error, results) => {
+						feed = results;
+					});
+					setTimeout(function() {
+						response.render('home', {account: account, feed: feed});
+					}, 2000);				
 				});
-				setTimeout(function() {
-					response.render('home', {account: account, feed: feed});
-				}, 2000);				
-			});
+			}else{
+				response.render('home', {account: account, feed: feed});
+			}
 		});		
 	});
 }
