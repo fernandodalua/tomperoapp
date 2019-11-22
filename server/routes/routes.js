@@ -20,7 +20,7 @@ module.exports = app => {
 				if (results.length > 0) {
 					request.session.loggedin = true;
 					request.session.username = username;
-					response.render('home', {account: results});
+					response.render('home', { datasetresult: results, datasetapi: JSON.stringify(data.results) });
 				} else {
 					response.send('Incorrect Username and/or Password!');
 				}
