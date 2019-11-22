@@ -52,15 +52,24 @@ module.exports = app => {
 	});
 	
 	app.post('/post', upload.single('file'), (request, response) => {
+		const file = req.file
 		let message = request.body.message;
 		let id_user = request.session.id_user;
 		
-		let userQuery = "INSERT INTO publications (id_account, date_post, post) values ("+id_user+", NOW(), '"+message+"')"
+		let userQuery = "INSERT INTO publications (id_account, date_post, post) values ("+id_user+", NOW(), '"+message+"')";
+		
 		db.query(userQuery, (error, results) => {
 			if (error){
 				response.send('Erro: '+error +' '+ id_user +' '+ message +' '+ userQuery);
 			}
-			response.render('home', {account: account});
+			let id_publication = results.insertId;
+			let userPhoto = "INSERT INTO photo_publications (id_publication, photo) values ("+id_publication+", '"+file.filename+"')";
+			db.query(userPhoto, (error, results) => {
+				if (error){
+					response.send('Erro: '+error +' '+ id_publication +' '+ file.filename +' '+ userQuery);
+				}
+				response.render('home', {account: account});
+			}
 		});		
 	});
 }
