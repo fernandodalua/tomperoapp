@@ -18,6 +18,7 @@ app.set('port', (process.env.PORT || 3000));
 app.use( express.static('public') );
 
 app.set('views', path.join(__dirname, 'views'));
+app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'ejs');
 
 app.use(bodyParser.urlencoded({extended: true}));
