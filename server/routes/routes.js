@@ -37,7 +37,7 @@ module.exports = app => {
 		res.render('new', {profile: profile})
 	});
 	
-	app.get('/authnew', (req, res) => {
+	app.post('/authnew', function(request, response) {
 		let fullname = request.body.fullname;
 		let email = request.body.email;
 		let telefone = request.body.telefone;
