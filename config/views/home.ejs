@@ -127,10 +127,10 @@
 				<li>
 					<a target="_blank" href="#"><%= feed[i].fullname %></a>
 					<a href="#" class="float-right"><%= feed[i].date_post %></a>
+					<p><%= feed[i].post %></p>
 					<%if (feed[i].photo) { %>
 					<img src="img/<%=feed[i].photo%>" class="img-thumbnail">
-					<%}%>
-					<p><%= feed[i].post %></p>
+					<%}%>					
 				</li>
 				<% } %>				
 			</ul>
