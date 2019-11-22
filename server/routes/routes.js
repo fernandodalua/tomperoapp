@@ -19,14 +19,14 @@ module.exports = app => {
 		let username = request.body.username;
 		let password = request.body.password;
 		
-		let userQuery = "SELECT a.id, a.username, a.password, a.email, a.fullname, a.sex, YEAR(FROM_DAYS(TO_DAYS(NOW())-TO_DAYS(a.birthday))) AS idade, a.description, p.profile, a.photo FROM accounts a inner join profile p on a.id_profile = p.id WHERE a.username = '"+ username +"' AND a.password = '"+ password +"'";
+		let userQuery = "SELECT a.id as id_user, a.username, a.password, a.email, a.fullname, a.sex, YEAR(FROM_DAYS(TO_DAYS(NOW())-TO_DAYS(a.birthday))) AS idade, a.description, p.profile, a.photo FROM accounts a inner join profile p on a.id_profile = p.id WHERE a.username = '"+ username +"' AND a.password = '"+ password +"'";
 		
 		if (username && password) {
 			db.query(userQuery, (error, results) => {
 				if (results.length > 0) {
 					request.session.loggedin = true;
 					request.session.username = username;
-					request.session.id = results[0].id;
+					request.session.id_user = results[0].id_user;
 					account = results;
 					response.render('home', {account: results});
 				} else {
@@ -42,7 +42,7 @@ module.exports = app => {
 	
 	app.post('/post', function(request, response) {
 		let message = request.body.message;
-		let id_user = request.session.id;
+		let id_user = request.session.id_user;
 		
 		let userQuery = "INSERT INTO publications (id_account, date_post, post) values ("+id_user+", NOW(), '"+message+"')"
 		db.query(userQuery, (error, results) => {
