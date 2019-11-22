@@ -39,6 +39,6 @@ module.exports = app => {
 	});
 	
 	app.post('/post', function(request, response) {
-		response.render('home');
+		//response.render('home', {account: results});
 	});
 }
