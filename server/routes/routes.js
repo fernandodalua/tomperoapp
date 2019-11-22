@@ -7,6 +7,9 @@ var db = mysql.createConnection({
 });
 
 module.exports = app => {
+	
+	var account = [];
+	
 	app.get('/', (req, res) => {
   		//res.json({ status: 'Server is running!' })
 		res.render('index')
@@ -24,7 +27,7 @@ module.exports = app => {
 					request.session.loggedin = true;
 					request.session.username = username;
 					console.log(results);
-					response.render('home.ejs', {texto: "teste", account: results});
+					response.render('home.ejs', {account: results});
 				} else {
 					response.send('Incorrect Username and/or Password!');
 				}
