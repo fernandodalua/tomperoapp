@@ -37,4 +37,8 @@ module.exports = app => {
 			response.end();
 		}
 	});
+	
+	app.post('/post', function(request, response) {
+		response.render('home');
+	});
 }

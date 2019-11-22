@@ -64,7 +64,7 @@
 					</h3>
 					<div class="mb-1 text-muted"><%=account[0].idade%> anos</div>
 					<p class="card-text mb-auto"><%=account[0].description%></p>
-					<a href="#">Ver mais</a>
+					<a href="#">Editar</a>
 	            </div>	                           
           	</div>
 			
@@ -72,6 +72,7 @@
 		<div class="col-md-6">
 			<!--- \\\\\\\Post-->
                 <div class="card gedf-card">
+				<form action="post" method="POST">
                     <div class="card-header">
                         <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
                             <li class="nav-item">
@@ -117,6 +118,7 @@
                             </div>
                         </div>
                     </div>
+					</form>
                 </div>
                 <!-- Post /////-->
 			<br>
