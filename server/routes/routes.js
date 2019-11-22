@@ -23,6 +23,7 @@ module.exports = app => {
 				if (results.length > 0) {
 					request.session.loggedin = true;
 					request.session.username = username;
+					console.log(results);
 					response.render('home.ejs', {texto: "teste", account: results});
 				} else {
 					response.send('Incorrect Username and/or Password!');
