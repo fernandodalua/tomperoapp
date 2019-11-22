@@ -130,7 +130,9 @@ module.exports = app => {
 					}, 2000);				
 				});						
 			}
-			response.render('home', {account: account, feed: feed});
+			setTimeout(function() {
+				response.render('home', {account: account, feed: feed});
+			}, 2000);
 		});		
 	});
 }
