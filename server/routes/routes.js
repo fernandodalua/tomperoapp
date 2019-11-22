@@ -104,7 +104,7 @@ module.exports = app => {
 	});
 	
 	app.post('/post', upload.single('file'), (request, response) => {
-		const file = request.file
+		let file = request.file
 		let message = request.body.message;
 		let id_user = request.session.id_user;
 		
@@ -114,9 +114,7 @@ module.exports = app => {
 			if (error){
 				response.send('Erro: '+error +' '+ id_user +' '+ message +' '+ userQuery);
 			}
-			let id_publication = results.insertId;
-			//if (file.filename){
-			response.send(file.filename);
+			let id_publication = results.insertId;			
 			let userPhoto = "INSERT INTO photo_publications (id_publication, photo) values ("+id_publication+", '"+file.filename+"')";
 				db.query(userPhoto, (error, results) => {
 					if (error){
@@ -129,10 +127,7 @@ module.exports = app => {
 					setTimeout(function() {
 						response.render('home', {account: account, feed: feed});
 					}, 2000);				
-				});
-			//}else{
-			//	response.render('home', {account: account, feed: feed});
-			//}
+				});			
 		});		
 	});
 }
