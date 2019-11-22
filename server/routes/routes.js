@@ -25,9 +25,9 @@ module.exports = app => {
 			db.query(userQuery, (error, results) => {
 				if (results.length > 0) {
 					request.session.loggedin = true;
-					request.session.username = username;
-					console.log(results);
+					request.session.username = username;					
 					response.render('home.ejs', {account: results});
+					console.log(account);
 				} else {
 					response.send('Incorrect Username and/or Password!');
 				}
