@@ -1,6 +1,15 @@
 const mysql = require('mysql');
 const multer = require('multer');
-const upload = multer({ dest: 'public/img/' });
+var storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, 'public/img/')
+  },
+  filename: function (req, file, cb) {
+    cb(null, file.fieldname + '-' + Date.now())
+  }
+});
+//const upload = multer({ dest: 'public/img/'});
+var upload = multer({ storage: storage })
 
 var db = mysql.createConnection({
         host     : 'localhost',
