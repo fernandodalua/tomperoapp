@@ -52,7 +52,7 @@ module.exports = app => {
 	});
 	
 	app.post('/post', upload.single('file'), (request, response) => {
-		const file = req.file
+		const file = request.file
 		let message = request.body.message;
 		let id_user = request.session.id_user;
 		
