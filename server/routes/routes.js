@@ -1,6 +1,6 @@
 const mysql = require('mysql');
 const multer = require('multer');
-const upload = multer({ dest: 'public/img/' });
+const upload = multer({ dest: 'upload/' });
 
 var db = mysql.createConnection({
         host     : 'localhost',
