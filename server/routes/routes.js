@@ -19,5 +19,7 @@ module.exports = app => {
 	
 	app.route('/post')
 		.post(userController.post)
+
+	app.route('/feed')
 		.get(userController.feed)
 }
