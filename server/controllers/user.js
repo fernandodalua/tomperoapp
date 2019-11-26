@@ -1,6 +1,4 @@
-const userController = require('../controllers/user');
-
-userController = {};
+let userController = {}
 let profile = {};
 let account = {};
 let feed = {};
