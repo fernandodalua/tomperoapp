@@ -18,7 +18,8 @@ module.exports = app => {
 		.post(userController.auth)
 	
 	app.route('/post')
-		.post(userController.post)
-		.get(userController.post)
+		.post(userController.post)		
 
+	app.route('/feed')
+		.get(userController.feed)
 }

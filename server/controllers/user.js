@@ -121,4 +121,22 @@ userController.post = (request, response) => {
 	}
 }
 
+userController.feed = (request, response) => {
+	if (request.session.loggedin) {
+		
+		let id_user = request.session.id_user;
+		
+		let feedQuery = "SELECT c.fullname, date_format(p.date_post, '%d/%m/%Y %H:%m:%s') as date_post, p.post, f.photo FROM publications p inner join accounts c on p.id_account = c.id left join photo_publications f on p.id = f.id_publication order by p.date_post desc";
+		db.query(feedQuery, (error, results) => {
+			feed = results;
+		});
+		setTimeout(function() {				
+			response.render('home', {account: account, feed: feed});
+		}, 2000);
+
+	}else{
+		res.render('index')
+	}
+}
+
 module.exports = userController;
