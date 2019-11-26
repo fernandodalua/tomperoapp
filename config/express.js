@@ -4,7 +4,6 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const session = require('express-session');
 const fs = require('fs');
-const database = require('../config/database');
 
 module.exports = () => {
 	const app = express();
