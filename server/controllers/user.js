@@ -113,7 +113,7 @@ userController.post = (request, response) => {
 				feed = results;
 			});
 			setTimeout(function() {				
-				//response.redirect(('home', {account: account, feed: feed});
+				response.redirect(307, '/home'); //('home', {account: account, feed: feed});
 			}, 2000);
 		});
 	}else{
