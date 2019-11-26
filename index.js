@@ -4,6 +4,7 @@
 //const cors = require('cors');
 //const bodyParser = require('body-parser');
 const app = require('./config/express')();
+require('./config/database');
 
 // crio um servidor express
 //const app = express();
