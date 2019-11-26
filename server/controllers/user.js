@@ -1,5 +1,3 @@
-const database = require('../config/database');
-
 let userController = {};
 let profile = {};
 let account = {};
