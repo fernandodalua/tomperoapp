@@ -1,6 +1,5 @@
 const userController = require('../controllers/user');
 
-let userController = {};
 let profile = {};
 let account = {};
 let feed = {};
