@@ -1,7 +1,7 @@
 const mysql = require('mysql');
 const multer = require('multer');
 
-var storage = multer.diskStorage({
+const storage = multer.diskStorage({
 	destination: function (req, file, cb) {
 		cb(null, 'public/img/')
 	},
@@ -10,9 +10,9 @@ var storage = multer.diskStorage({
 	}
 });
 
-var upload = multer({ storage: storage })
+const upload = multer({ storage: storage })
 
-var db = mysql.createConnection({
+const db = mysql.createConnection({
     host     : 'localhost',
     user     : 'root',
     password : 'dalua123',
