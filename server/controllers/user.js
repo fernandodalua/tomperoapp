@@ -112,7 +112,7 @@ userController.post = (request, response) => {
 			db.query(feedQuery, (error, results) => {
 				feed = results;
 			});
-			setTimeout(function() {
+			setTimeout(function() {				
 				response.render('home', {account: account, feed: feed});
 			}, 2000);
 		});

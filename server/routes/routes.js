@@ -19,5 +19,6 @@ module.exports = app => {
 	
 	app.route('/post')
 		.post(userController.post)
+		.get(userController.post)
 
 }
