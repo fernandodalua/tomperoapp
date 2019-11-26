@@ -5,6 +5,7 @@ const path = require('path');
 const session = require('express-session');
 const fs = require('fs');
 const database = require('../config/database');
+const userController = require('..server/controllers/user');
 
 module.exports = () => {
 	const app = express();
