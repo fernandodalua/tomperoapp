@@ -24,7 +24,7 @@ userController.authNew = (request, response) => {
 	let username = request.body.username;
 	
 	let newUser = "INSERT INTO accounts (username, password, email, fullname, id_profile) values ('"+username+"', '"+password+"', '"+email+"', '"+fullname+"', "+profile+")";
-	db.query(newUser, (error, results) => {
+	userController.db.query(newUser, (error, results) => {
 		if (error){
 			response.send('Erro: '+error +' '+ profile +' '+ username +' '+ newUser);
 		}else{
