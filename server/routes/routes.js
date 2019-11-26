@@ -1,5 +1,8 @@
 const mysql = require('mysql');
 const multer = require('multer');
+const userController = require('..controllers/user');
+
+
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, 'public/img/')
@@ -8,7 +11,7 @@ var storage = multer.diskStorage({
     cb(null, file.fieldname + '-' + Date.now())
   }
 });
-//const upload = multer({ dest: 'public/img/'});
+
 var upload = multer({ storage: storage })
 
 var db = mysql.createConnection({
@@ -24,18 +27,13 @@ module.exports = app => {
 	var feed = [];
 	var profile = [];
 	
-	app.get('/', (req, res) => {  		
+	app.get('/', (req, res) => {
 		res.render('index')
 	});
 	
-	app.get('/new', (req, res) => {
-		let userQuery = "SELECT id as id_profile, profile FROM profile";
-		db.query(userQuery, (error, results) => {
-			profile = results;
-		});
-		
-		res.render('new', {profile: profile})
-	});
+	app.route('/new') //, (req, res) => {
+		.get(userController.newUser)			
+	//});
 	
 	app.post('/authnew', function(request, response) {
 		let fullname = request.body.fullname;
