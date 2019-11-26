@@ -1,5 +1,3 @@
-const database = require('../../config/database');
-
 let userController = {}
 let profile = {};
 let account = {};
@@ -26,7 +24,7 @@ userController.authNew = (request, response) => {
 	let username = request.body.username;
 	
 	let newUser = "INSERT INTO accounts (username, password, email, fullname, id_profile) values ('"+username+"', '"+password+"', '"+email+"', '"+fullname+"', "+profile+")";
-	userController.db.query(newUser, (error, results) => {
+	db.query(newUser, (error, results) => {
 		if (error){
 			response.send('Erro: '+error +' '+ profile +' '+ username +' '+ newUser);
 		}else{
@@ -65,7 +63,7 @@ userController.auth = (request, response) => {
 	let userQuery = "SELECT a.id as id_user, a.username, a.password, a.email, a.fullname, a.sex, YEAR(FROM_DAYS(TO_DAYS(NOW())-TO_DAYS(a.birthday))) AS idade, a.description, p.profile, a.photo FROM accounts a inner join profile p on a.id_profile = p.id WHERE a.username = '"+ username +"' AND a.password = '"+ password +"'";
 	let feedQuery = "SELECT c.fullname, date_format(p.date_post, '%d/%m/%Y %H:%m:%s') as date_post, p.post, f.photo FROM publications p inner join accounts c on p.id_account = c.id left join photo_publications f on p.id = f.id_publication order by p.date_post desc";
 	
-	db.query(feedQuery, (error, results) => {
+	database.db.query(feedQuery, (error, results) => {
 		feed = results;
 	});
 	
