@@ -132,7 +132,7 @@ module.exports = app => {
 				});
 				setTimeout(function() {
 					response.redirect('/post');
-				}, 2000);
+				}, 1000);
 			});
 		} else {
 			response.render('index');
