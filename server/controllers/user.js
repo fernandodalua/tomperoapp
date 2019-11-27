@@ -107,38 +107,41 @@ userController.auth = (request, response) => {
 }
 
 userController.post = (request, response) => {
-	if (request.session.loggedin) {
-		let message = request.body.message;
-		let id_user = request.session.id_user;
-		
-		let userQuery = "INSERT INTO publications (id_account, date_post, post) values ("+id_user+", NOW(), '"+message+"')";
-		console.log(userQuery);
-		
-		db.query(userQuery, (error, results) => {
-			if (error){
-				response.send('Erro: '+error +' '+ id_user +' '+ message +' '+ userQuery);
-			}
-			let id_publication = results.insertId;
-			if (request.file){
-				let file = request.file
-				let userPhoto = "INSERT INTO photo_publications (id_publication, photo) values ("+id_publication+", '"+file.filename+"')";
-				db.query(userPhoto, (error, results) => {
-					if (error){
-						response.send('Erro: '+error +' '+ id_publication +' '+ file.filename +' '+ userQuery);
-					}
+	let message = request.body.message;
+	let id_user = request.session.id_user;
+	
+	let userQuery = "INSERT INTO publications (id_account, date_post, post) values ("+id_user+", NOW(), '"+message+"')";
+	
+	db.query(userQuery, (error, results) => {
+		if (error){
+			response.send('Erro: '+error +' '+ id_user +' '+ message +' '+ userQuery);
+		}
+		let id_publication = results.insertId;
+		if (request.file){
+			let file = request.file
+			let userPhoto = "INSERT INTO photo_publications (id_publication, photo) values ("+id_publication+", '"+file.filename+"')";
+			db.query(userPhoto, (error, results) => {
+				if (error){
+					response.send('Erro: '+error +' '+ id_publication +' '+ file.filename +' '+ userQuery);
+				}
+				let feedQuery = "SELECT c.fullname, date_format(p.date_post, '%d/%m/%Y %H:%m:%s') as date_post, p.post, f.photo FROM publications p inner join accounts c on p.id_account = c.id left join photo_publications f on p.id = f.id_publication order by p.date_post desc";		
+				db.query(feedQuery, (error, results) => {
+					feed = results;
 				});
-			}
-			let feedQuery = "SELECT c.fullname, date_format(p.date_post, '%d/%m/%Y %H:%m:%s') as date_post, p.post, f.photo FROM publications p inner join accounts c on p.id_account = c.id left join photo_publications f on p.id = f.id_publication order by p.date_post desc";
-			db.query(feedQuery, (error, results) => {
-				feed = results;
-			});
-			setTimeout(function() {				
-				response.render('home', {account: account, feed: feed});
-			}, 2000);
+				setTimeout(function() {
+					response.render('home', {account: account, feed: feed});
+				}, 2000);				
+			});						
+		}
+		let feedQuery = "SELECT c.fullname, date_format(p.date_post, '%d/%m/%Y %H:%m:%s') as date_post, p.post, f.photo FROM publications p inner join accounts c on p.id_account = c.id left join photo_publications f on p.id = f.id_publication order by p.date_post desc";		
+		db.query(feedQuery, (error, results) => {
+			feed = results;
 		});
-	}else{
-		response.render('index')
-	}
+		setTimeout(function() {
+			response.render('home', {account: account, feed: feed});
+		}, 2000);
+	});
 }
+
 
 module.exports = userController;

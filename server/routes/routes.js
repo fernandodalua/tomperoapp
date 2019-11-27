@@ -17,8 +17,6 @@ module.exports = app => {
 	app.route('/auth')
 		.post(userController.auth)
 	
-	app.route('/post')		
-	  	.post(userController.post, function(request, response){
-		
-		});
+	app.route('/post')
+		.post(userController.post)
 }
