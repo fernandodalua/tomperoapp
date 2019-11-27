@@ -1,4 +1,4 @@
-const userController = require('../controllers/user');
+const userController = require('../controllers/user')
 
 module.exports = app => {
 	
@@ -19,9 +19,9 @@ module.exports = app => {
 	
 	app.route('/post')
 		.get(userController.post, function(req, res) {
-    		res.send('Get a random book');
+    		res.send('Get a random book')
 	  	})
 	  	.post(userController.post, function(req, res) {
-	    	res.send('Add a book');
+	    	res.send('Add a book')
 	  	})
 }
