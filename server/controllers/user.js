@@ -3,6 +3,7 @@ let profile = {};
 let account = {};
 let feed = {};
 const database = require('../../config/database');
+var db = database.db;
 
 userController.index = (req, res) => {
 	res.render('index')
