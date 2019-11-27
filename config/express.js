@@ -4,8 +4,7 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const session = require('express-session');
 const fs = require('fs');
-const mysql = require('mysql');
-const multer = require('multer');
+
 
 module.exports = () => {
 	const app = express();
@@ -46,15 +45,4 @@ module.exports = () => {
 		.into(app);
 
 	return app;
-}
-
-module.exports = () => {
-	const db = mysql.createConnection({
-		host     : 'localhost',
-		user     : 'root',
-		password : 'dalua123',
-		database : 'tompero'
-	});
-	
-	return db;
 }
