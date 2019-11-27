@@ -34,7 +34,9 @@ module.exports = app => {
 		db.query(userQuery, (error, results) => {
 			profile = results;
 		});
-		res.render('new', {profile: profile});
+		setTimeout(function() {
+			res.render('new', {profile: profile});
+		}, 1000);		
 	});
 	
 	app.post('/authnew', function(request, response) {
