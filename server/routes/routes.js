@@ -18,10 +18,4 @@ module.exports = app => {
 		.post(userController.auth)
 	
 	app.route('/post')
-		.get(userController.post, function(req, res) {
-    		res.send('Get a random book')
-	  	})
-	  	.post(userController.post, function(req, res) {
-	    	res.send('Add a book')
-	  	})
-}
+	  	.post(userController.post)

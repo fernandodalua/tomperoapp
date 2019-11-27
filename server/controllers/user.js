@@ -73,7 +73,7 @@ userController.home = (request, response) => {
 			}				
 		})
 	}else{
-		res.render('index')
+		response.render('index')
 	}
 }
 
@@ -136,7 +136,7 @@ userController.post = (request, response) => {
 			}, 2000)
 		})
 	}else{
-		res.render('index')
+		response.render('index')
 	}
 }
 
