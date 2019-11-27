@@ -18,5 +18,7 @@ module.exports = app => {
 		.post(userController.auth)
 	
 	app.route('/post')		
-	  	.post(userController.post, upload.single('file'), (request, response))
+	  	.post(userController.post, function(request, response){
+		
+		});
 }
