@@ -1,4 +1,3 @@
-//const userController = require('../controllers/user');
 const mysql = require('mysql');
 const multer = require('multer');
 
@@ -31,7 +30,11 @@ module.exports = app => {
 	});
 	
 	app.get('/new', (req, res) => {
-		res.render('new')
+		let userQuery = "SELECT id as id_profile, profile FROM profile";
+		db.query(userQuery, (error, results) => {
+			profile = results;
+		});
+		res.render('new', {profile: profile});
 	});
 	
 	app.post('/authnew', function(request, response) {
