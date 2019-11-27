@@ -106,7 +106,7 @@ userController.auth = (request, response) => {
 	}
 }
 
-userController.post = (request, response) => {
+/*userController.post = (request, response) => {
 	let message = request.body.message;
 	let id_user = request.session.id_user;
 	
@@ -141,7 +141,6 @@ userController.post = (request, response) => {
 			response.render('home', {account: account, feed: feed});
 		}, 2000);
 	});
-}
-
+}*/
 
 module.exports = userController;
