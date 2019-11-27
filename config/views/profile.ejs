@@ -17,14 +17,20 @@
 						<img src="img/<%=account[0].photo%>" class="rounded-circle img-thumbnail">					
 						<%} else { %>
 						<img src="img/null.svg" class="rounded-circle img-thumbnail">
-						<%} %>	            						
+						<%} %>
+						<div class="form-group">
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" name="file" id="customFile" multiple>
+                                <label class="custom-file-label" for="customFile">Upload da imagem</label>
+                            </div>
+                        </div>
 		            </div>	                           
 	          	</div>
 				
 			</div>
-			<div class="col-md-6">
+			<div class="col-md-6" style="border: none !important;">
 				<!--- \\\\\\\Post-->
-	                <div class="card gedf-card">
+	                <div class="card gedf-card" style="border: none !important;">
 						<div class="input-group mb-3">
 						    <div class="input-group-prepend">
 						    	<span class="input-group-text"> <i class="fa fa-user"></i></span>
