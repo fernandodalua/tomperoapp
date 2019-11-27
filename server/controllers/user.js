@@ -3,8 +3,6 @@ let profile = {};
 let account = {};
 let feed = {};
 
-var db = config.db;
-
 userController.index = (req, res) => {
 	res.render('index')
 }
