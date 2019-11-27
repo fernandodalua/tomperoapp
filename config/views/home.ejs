@@ -91,10 +91,12 @@
 				<li>
 					<a href="#"><%= feed[i].fullname %></a>
 					<a href="#" class="float-right"><%= feed[i].date_post %></a>
-					<p><%= feed[i].post %></p>
-					<%if (feed[i].photo) { %>
-					<img src="img/<%=feed[i].photo%>" class="img-thumbnail">
-					<%}%>					
+					<div class="card sticky-top">
+						<p><%= feed[i].post %></p>
+						<%if (feed[i].photo) { %>
+						<img src="img/<%=feed[i].photo%>" class="img-thumbnail">
+						<%}%>
+					</div>
 				</li>
 				<% } %>				
 			</ul>
