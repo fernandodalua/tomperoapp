@@ -132,7 +132,7 @@ userController.post = (request, response) => {
 				feed = results
 			})
 			setTimeout(function() {				
-				response.redirect('home', {account: account, feed: feed})
+				response.render('home', {account: account, feed: feed})
 			}, 2000)
 		})
 	}else{
