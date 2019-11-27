@@ -22,6 +22,10 @@ const upload = multer({ storage: storage })
 
 module.exports = app => {
 	
+	let profile = {};
+	let account = {};
+	let feed = {};
+	
 	app.route('/')
 		.get(userController.index)
 	
