@@ -108,8 +108,8 @@ userController.auth = (request, response) => {
 
 userController.post = (request, response) => {
 	if (request.session.loggedin) {
-		let message = request.body.message
-		let id_user = request.session.id_user
+		let message = request.body.message;
+		let id_user = request.session.id_user;
 		
 		let userQuery = "INSERT INTO publications (id_account, date_post, post) values ("+id_user+", NOW(), '"+message+"')"
 		
