@@ -133,4 +133,8 @@ module.exports = app => {
 			response.render('index');
 		}
 	});
+	
+	app.get('/post', (req, res) => {
+		res.render('home')
+	});
 }
