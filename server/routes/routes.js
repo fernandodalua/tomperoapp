@@ -1,4 +1,4 @@
-const userController = require('../controllers/user')
+const userController = require('../controllers/user');
 
 module.exports = app => {
 	
@@ -17,6 +17,6 @@ module.exports = app => {
 	app.route('/auth')
 		.post(userController.auth)
 	
-	app.route('/post')
-	  	.post(userController.post) 
+	app.route('/post')		
+	  	.post(userController.post)
 }
