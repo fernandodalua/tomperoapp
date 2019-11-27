@@ -142,4 +142,8 @@ module.exports = app => {
 	app.get('/post', (req, res) => {
 		res.render('home', {account: account, feed: feed});
 	});
+	
+	app.get('/profile', (req, res) => {
+		res.render('profile')
+	});
 }
