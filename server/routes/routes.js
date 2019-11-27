@@ -135,6 +135,6 @@ module.exports = app => {
 	});
 	
 	app.get('/post', (req, res) => {
-		response.render('home', {account: results, feed: feed});
+		res.render('home', {account: results, feed: feed});
 	});
 }
