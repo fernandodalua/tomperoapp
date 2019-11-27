@@ -2,6 +2,7 @@ let userController = {}
 let profile = {};
 let account = {};
 let feed = {};
+require('../../config/database');
 
 userController.index = (req, res) => {
 	res.render('index')
