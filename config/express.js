@@ -21,13 +21,6 @@ module.exports = () => {
 
 	const upload = multer({ storage: storage })
 
-	const db = mysql.createConnection({
-		host     : 'localhost',
-		user     : 'root',
-		password : 'dalua123',
-		database : 'tompero'
-	});
-
 	app.use(session({
 		secret: 'secret',
 		resave: true,
@@ -53,4 +46,15 @@ module.exports = () => {
 		.into(app);
 
 	return app;
+}
+
+module.exports = () => {
+	const db = mysql.createConnection({
+		host     : 'localhost',
+		user     : 'root',
+		password : 'dalua123',
+		database : 'tompero'
+	});
+	
+	return db;
 }
