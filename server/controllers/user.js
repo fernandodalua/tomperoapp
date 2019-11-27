@@ -112,6 +112,7 @@ userController.post = (request, response) => {
 		let id_user = request.session.id_user;
 		
 		let userQuery = "INSERT INTO publications (id_account, date_post, post) values ("+id_user+", NOW(), '"+message+"')";
+		console.log(userQuery);
 		
 		db.query(userQuery, (error, results) => {
 			if (error){
