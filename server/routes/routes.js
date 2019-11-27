@@ -30,7 +30,7 @@ module.exports = app => {
 		res.render('index')
 	});
 	
-	app.route('/new') , (req, res) => {
+	app.get('/new', (req, res) => {
 		res.render('new')
 	});
 	
