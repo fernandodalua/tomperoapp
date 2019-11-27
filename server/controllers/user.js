@@ -24,7 +24,7 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage })
 
-userController.index = (req, res) => {
+/*userController.index = (req, res) => {
 	res.render('index')
 }
 
@@ -106,7 +106,7 @@ userController.auth = (request, response) => {
 	}
 }
 
-/*userController.post = (request, response) => {
+userController.post = (request, response) => {
 	let message = request.body.message;
 	let id_user = request.session.id_user;
 	
@@ -142,5 +142,6 @@ userController.auth = (request, response) => {
 		}, 2000);
 	});
 }*/
+
 
 module.exports = userController;
