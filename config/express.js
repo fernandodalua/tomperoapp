@@ -5,7 +5,6 @@ const path = require('path');
 const session = require('express-session');
 const fs = require('fs');
 
-
 module.exports = () => {
 	const app = express();	
 
