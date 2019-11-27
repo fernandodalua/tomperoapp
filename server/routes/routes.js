@@ -126,7 +126,7 @@ module.exports = app => {
 					feed = results;
 				});
 				setTimeout(function() {
-					response.render('home', {account: account, feed: feed});
+					response.redirect('home', {account: account, feed: feed});
 				}, 2000);
 			});
 		} else {
