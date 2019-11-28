@@ -92,7 +92,8 @@
 	<script>
         $('#customFile').on('change',function(){
             //get the file name
-            var fileName = $(this).val();
+            var fileName = $(this).val();            
+  			var res = fileName.slice(0, 12);
             //replace the "Choose a file" label
             $(this).next('.custom-file-label').html(fileName);
         })
