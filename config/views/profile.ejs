@@ -41,7 +41,7 @@
                       <i class="fa fa-user"></i>
                     </span>
                   </div>
-                  <input type="text" name="fullname" class="form-control" placeholder="Nome completo" aria-label="Nome completo" aria-describedby="basic-addon1" require=""/>
+                  <input type="text" name="fullname" value="<%=account[0].fullname%>" class="form-control" placeholder="Nome completo" aria-label="Nome completo" aria-describedby="basic-addon1" require/>
                 </div>
 
                 <div class="input-group mb-3">
@@ -50,13 +50,13 @@
                       <i class="fa fa-envelope"></i>
                     </span>
                   </div>
-                  <input type="email" name="email" class="form-control" placeholder="E-mail" aria-label="E-mail" aria-describedby="basic-addon2"/>
+                  <input type="email" name="email" value="" class="form-control" placeholder="E-mail" aria-label="E-mail" aria-describedby="basic-addon2"/>
                 </div>
                 <div class="input-group">
                   <div class="input-group-prepend">
                     <span class="input-group-text">Descrição</span>
                   </div>
-                  <textarea class="form-control" name="description" aria-label="Descrição"></textarea>
+                  <textarea class="form-control" value="" name="description" aria-label="Descrição"></textarea>
                 </div>
                 <br/>
                 <label for="basic-url">Dados de acesso</label>
@@ -66,7 +66,7 @@
                       <i class="fa fa-lock"></i>
                     </span>
                   </div>
-                  <input type="text" name="username" class="form-control" id="basic-url" aria-describedby="basic-addon3" placeholder="Usuário" require=""/>
+                  <input type="text" name="username" value="" class="form-control" id="basic-url" aria-describedby="basic-addon3" placeholder="Usuário" require/>
                 </div>
 
                 <div class="input-group mb-3">
@@ -75,7 +75,7 @@
                       <i class="fa fa-lock"></i>
                     </span>
                   </div>
-                  <input type="text" class="form-control" placeholder="Senha" name="password" aria-label="Senha" require=""/>
+                  <input type="password" class="form-control" value="" placeholder="Senha" name="password" aria-label="Senha" require/>
                 </div>
                 <div class="btn-group">
                   <button type="submit" class="btn btn-primary">Salvar</button>
