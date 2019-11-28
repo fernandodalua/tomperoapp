@@ -56,7 +56,9 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text">Descrição</span>
                   </div>
-                  <textarea class="form-control" value="<%=account[0].description%>" name="description" aria-label="Descrição"></textarea>
+                  <textarea class="form-control" name="description" aria-label="Descrição">
+                    <%=account[0].description%>
+                  </textarea>
                 </div>
                 <br/>
                 <label for="basic-url">Dados de acesso</label>
