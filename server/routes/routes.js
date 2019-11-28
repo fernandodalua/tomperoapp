@@ -1,6 +1,6 @@
 const mysql = require('mysql');
 const multer = require('multer');
-const { convertDeltaToHtml } = require('node-quill-converter');
+var QuillDeltaToHtmlConverter = require('quill-delta-to-html').QuillDeltaToHtmlConverter;
 
 const db = mysql.createConnection({
 	host     : 'localhost',
@@ -64,9 +64,9 @@ module.exports = app => {
         let feedQuery = "SELECT c.id as id_account, c.fullname, date_format(p.date_post, '%d/%m/%Y %H:%m:%s') as date_post, p.post, f.photo FROM publications p inner join accounts c on p.id_account = c.id left join photo_publications f on p.id = f.id_publication order by p.date_post desc";
 
         db.query(feedQuery, (error, results) => {
-            for (var i = 0; i < results.length; i++) {
-                let html = '';
-                html = convertDeltaToHtml(results[i].post);
+            for (var i = 0; i < results.length; i++) {                
+                var converter = new QuillDeltaToHtmlConverter(results[i].post);
+                var html = converter.convert();
                 results[i].post = html;
                 console.log(html);
             }
