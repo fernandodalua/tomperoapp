@@ -19,6 +19,14 @@
               <%} else { %>
               <img src="../img/null.svg" class="rounded-circle img-thumbnail">
               <%} %>
+              <strong class="d-inline-block mb-2 text-primary"><%=accountUser[0].fullname%></strong>
+					    <h3 class="mb-0">
+					      <a class="text-dark" href="#"><%=accountUser[0].profile%></a>
+					    </h3>
+					    <%if (accountUser=""[0].idade) { %>
+					    <div class="mb-1 text-muted"><%=accountUser[0].idade%> anos</div>
+					    <%} %>
+					    <p class="card-text mb-auto"><%=accountUser[0].description%></p>
             </div>
           </div>
         </div>
