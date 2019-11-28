@@ -68,6 +68,7 @@ module.exports = app => {
                 let html;
                 html = convertDeltaToHtml(results[i].post);
                 results[i].post = html;
+                console.log(html);
             }
             feed = results;
         });
