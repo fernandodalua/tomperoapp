@@ -50,13 +50,13 @@
                       <i class="fa fa-envelope"></i>
                     </span>
                   </div>
-                  <input type="email" name="email" value="" class="form-control" placeholder="E-mail" aria-label="E-mail" aria-describedby="basic-addon2"/>
+                  <input type="email" name="email" value="<%=account[0].email%>" class="form-control" placeholder="E-mail" aria-label="E-mail" aria-describedby="basic-addon2"/>
                 </div>
                 <div class="input-group">
                   <div class="input-group-prepend">
                     <span class="input-group-text">Descrição</span>
                   </div>
-                  <textarea class="form-control" value="" name="description" aria-label="Descrição"></textarea>
+                  <textarea class="form-control" value="<%=account[0].description%>" name="description" aria-label="Descrição"></textarea>
                 </div>
                 <br/>
                 <label for="basic-url">Dados de acesso</label>
@@ -66,8 +66,8 @@
                       <i class="fa fa-lock"></i>
                     </span>
                   </div>
-                  <input type="text" name="username" value="" class="form-control" id="basic-url" aria-describedby="basic-addon3" placeholder="Usuário" require/>
-                </div>
+                  <input type="text" name="username" value="<%=account[0].username%>" class="form-control" id="basic-url" aria-describedby="basic-addon3" placeholder="Usuário" require/>
+                  </div>
 
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
@@ -75,8 +75,8 @@
                       <i class="fa fa-lock"></i>
                     </span>
                   </div>
-                  <input type="password" class="form-control" value="" placeholder="Senha" name="password" aria-label="Senha" require/>
-                </div>
+                  <input type="password" class="form-control" value="<%=account[0].password%>" placeholder="Senha" name="password" aria-label="Senha" require/>
+                  </div>
                 <div class="btn-group">
                   <button type="submit" class="btn btn-primary">Salvar</button>
                 </div>

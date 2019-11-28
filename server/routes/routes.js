@@ -163,6 +163,11 @@ module.exports = app => {
     });
 
     app.post("/savenew", (request, response) => {
-        response.send('oi');
+        let fullname = request.body.fullname;
+        let email = request.body.email;
+        let description = request.body.description;
+        let username = request.body.username;
+        let password = request.body.password;        
+        response.send(fullname + ' ' + email + ' ' + description + ' ' + username + ' ' + password + ' ');
     }); 
 }
