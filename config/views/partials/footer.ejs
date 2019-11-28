@@ -17,8 +17,15 @@
 </script>
 <!-- Initialize Quill editor -->
 <script>
-  var editor = new Quill('#editor', {
-  modules: { toolbar: '#toolbar' },
-  theme: 'snow'
+  var quill = new Quill('#editor-container', {
+    modules: {
+      toolbar: [
+        [{ header: [1, 2, false] }],
+        ['bold', 'italic', 'underline'],
+        ['image', 'code-block']
+      ]
+    },
+    placeholder: 'Ingredientes',
+    theme: 'snow'  // or 'bubble'
   });
 </script>
