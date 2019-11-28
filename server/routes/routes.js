@@ -96,7 +96,7 @@ module.exports = app => {
 					account = results;
 					response.render('home', {account: results, feed: feed});
                 } else {
-                    response.send("Senha incorreta");
+                    //response.send('Senha incorreta');
                     response.render('index');
 				}				
 			});
