@@ -157,6 +157,6 @@ module.exports = app => {
             }
             feedUser = results;
         });
-        res.render('profileUser', { feedUser: feedUser });
+        res.render('profileUsers', { feedUser: feedUser });
     });
 }
