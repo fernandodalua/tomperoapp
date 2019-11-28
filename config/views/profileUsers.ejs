@@ -24,8 +24,7 @@
             <ul class="timeline">
               <% for(var i = 0; i < feedUser.length; i++){ %>
               <li>
-                <a href="/profile/"
-                  <%= feedUser[i].id_account %>"><%= feedUser[i].fullname %>
+                <a href="/profile/"<%= feedUser[i].id_account %>"><%= feedUser[i].fullname %>
                   </a>
                 <a href="#" class="float-right">
                   <%= feedUser[i].date_post %>
@@ -36,7 +35,7 @@
                     </p>
                   <%if (feedUser=""[i=""].photo="") { %>
                     <img src="img/"<%=feedUser[i].photo%>" class="img-thumbnail">
-                  <%}%>
+                      <%}%>
                   </div>
               </li>
               <% } %>

@@ -157,6 +157,7 @@ module.exports = app => {
             }
             feedUser = results;
         });
+        console.log(profileUserQuery);
         res.render('profileUsers', { feedUser: feedUser });
     });
 }
