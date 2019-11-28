@@ -1,5 +1,6 @@
 const mysql = require('mysql');
 const multer = require('multer');
+const { convertTextToDelta } = require('node-quill-converter');
 
 const db = mysql.createConnection({
 	host     : 'localhost',
@@ -84,8 +85,12 @@ module.exports = app => {
 		let userQuery = "SELECT a.id as id_user, a.username, a.password, a.email, a.fullname, a.sex, YEAR(FROM_DAYS(TO_DAYS(NOW())-TO_DAYS(a.birthday))) AS idade, a.description, p.profile, a.photo FROM accounts a inner join profile p on a.id_profile = p.id WHERE a.username = '"+ username +"' AND a.password = '"+ password +"'";
         let feedQuery = "SELECT c.id as id_account, c.fullname, date_format(p.date_post, '%d/%m/%Y %H:%m:%s') as date_post, p.post, f.photo FROM publications p inner join accounts c on p.id_account = c.id left join photo_publications f on p.id = f.id_publication order by p.date_post desc";
 
-		db.query(feedQuery, (error, results) => {
-			feed = results;
+        db.query(feedQuery, (error, results) => {
+            for (var i = 0; i < results.length; i++) {
+                let html = convertDeltaToHtml(results[i].post);
+                results[i].post = html;
+            }
+            feed = results;
 		});
 
 		if (username && password) {
