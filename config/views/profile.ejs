@@ -18,7 +18,8 @@
 						  <%} else { %>
 						  <img src="img/null.svg" class="rounded-circle img-thumbnail">
 						  <%} %>
-						    <div class="form-group">
+              <form action="updatephoto" method="POST" enctype="multipart/form-data">
+                <div class="form-group">
                   <div class="custom-file">
                     <input type="file" class="custom-file-input" name="file" id="customFile"/>
                     <label class="custom-file-label" for="customFile">Imagem</label>
@@ -29,6 +30,7 @@
                     <button type="submit" class="btn btn-primary">Trocar imagem</button>
                   </div>
                 </div>
+              </form>
 		          </div>	                           
 	          </div>		
 			    </div>
