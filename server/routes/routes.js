@@ -23,8 +23,7 @@ module.exports = app => {
 	
 	let profile = {};
 	let account = {};
-	let feed = {};
-    let feedUser = {};
+	let feed = {};    
 
 	app.get('/', (req, res) => {
 		res.render('index')
@@ -154,10 +153,11 @@ module.exports = app => {
         db.query(profileUserQuery, (error, results) => {
             if (error) {
                 res.send('Erro: ' + error + ' ' + id_account + ' ' + profileUserQuery);
-            }
-            feedUser = results;
+            } else {
+                console.log(profileUserQuery);
+                res.render('profileUsers', { feedUser: results });
+            }                        
         });
-        console.log(profileUserQuery);
-        res.render('profileUsers', { feedUser: feedUser });
+        
     });
 }
