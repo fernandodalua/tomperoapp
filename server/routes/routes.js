@@ -100,8 +100,7 @@ module.exports = app => {
 				}				
 			});
 		} else {
-			response.send('Please enter Username and Password!');
-			response.end();
+            response.render('index');
 		}
 	});
 	
