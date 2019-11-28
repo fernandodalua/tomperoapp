@@ -68,3 +68,15 @@ ul.timeline > li:before {
     height: 20px;
     z-index: 400;
 }
+
+.container-new input[type="submit"] {
+    width: 100%;
+    padding: 15px;
+    background-color: #FF8C00;
+    border: 0;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+    cursor: pointer;
+    font-weight: bold;
+    color: #FFFFFF;
+}

@@ -1,99 +1,61 @@
+
 <!doctype html>
 <html lang="pt-br">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
-	<style>
-	.container input[type="submit"] {
-			width: 100%;
-			padding: 15px;
-			background-color: #FF8C00;
-			border: 0;
-			box-sizing: border-box;
-			margin-bottom: 15px;
-			cursor: pointer;
-			font-weight: bold;
-			color: #FFFFFF;
-		}
-	</style>
-    <title>TomperoApp</title>    
-
-    <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">    
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!-- Custom styles for this template -->
-    <link rel="stylesheet" href="css/style.css">
+  <% include partials/head %>
   </head>
 
   <body>
-  
-  <div class="container">	  
-  <div class="card bg-light">
-	<article class="card-body mx-auto" style="max-width: 400px;">
-	<h4 class="card-title mt-3 text-center">Cadastre-se</h4>
-	<p class="text-center">Crie uma conta gratuita</p>
-	<form action="authnew" method="POST">
-	<div class="form-group input-group">
-		<div class="input-group-prepend">
-		    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
-		 </div>
-        <input name="fullname" class="form-control" placeholder="Nome completo" type="text">
-    </div> <!-- form-group// -->
-    <div class="form-group input-group">
-    	<div class="input-group-prepend">
-		    <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
-		 </div>
-        <input name="email" class="form-control" placeholder="E-mail" type="email">
-    </div> <!-- form-group// -->
-    <div class="form-group input-group">
-    	<div class="input-group-prepend">
-		    <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
-		</div>
-		<select class="custom-select" style="max-width: 120px;">
-		    <option selected="">+55</option>
-		</select>
-    	<input name="telefone" class="form-control" placeholder="Telefone" type="text">
-    </div> <!-- form-group// -->
-    <div class="form-group input-group">
-    	<div class="input-group-prepend">
-		    <span class="input-group-text"> <i class="fa fa-building"></i> </span>
-		</div>
-		<select name="profile" class="form-control">			
-			<option selected=""> Manda bem na cozinha ?</option>
-			<% for(var i = 0; i < profile.length; i++){ %>
-			<option value="<%= profile[i].id_profile %> "><%= profile[i].profile %></option>
-			<% } %>
-		</select>
-	</div> <!-- form-group end.// -->
-	<div class="form-group input-group">
-		<div class="input-group-prepend">
-		    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
-		 </div>
-        <input name="username" class="form-control" placeholder="Usuário" type="text">
-    </div> <!-- form-group// -->
-    <div class="form-group input-group">
-    	<div class="input-group-prepend">
-		    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
-		</div>
-        <input class="form-control" placeholder="Senha" name="password" type="password">
-    </div> <!-- form-group// -->                                    
-    <div class="form-group">
-        <input type="submit" value="Criar Conta"> 
-    </div> <!-- form-group// -->      
-    <p class="text-center">Tem conta ? <a href="/">Log In</a> </p>                                                                 
-</form>
-</article>
-</div> <!-- card.// -->
-
-</div> 
-  
-  
-  
-  
-  <footer class="footer">
+    <div class="container-new">
+      <div class="card bg-light">
+        <article class="card-body mx-auto" style="max-width: 400px;">
+	      <h4 class="card-title mt-3 text-center">Cadastre-se</h4>
+	      <p class="text-center">Crie uma conta gratuita</p>
+          <form action="authnew" method="POST">
+            <div class="form-group input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+              </div>
+              <input name="fullname" class="form-control" placeholder="Nome completo" type="text" required/>
+            </div>
+            <div class="form-group input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+              </div>
+              <input name="email" class="form-control" placeholder="E-mail" type="email" required/>
+            </div>
+            <div class="form-group input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"> <i class="fa fa-building"></i> </span>
+              </div>
+              <select name="profile" class="form-control">
+                <option selected="" required> Manda bem na cozinha ?</option>
+                <% for(var i = 0; i < profile.length; i++){ %>
+                <option value="<%= profile[i].id_profile %> "><%= profile[i].profile %></option>
+                <% } %>
+              </select>
+            </div>
+            <div class="form-group input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+              </div>
+              <input name="username" class="form-control" placeholder="Usuário" type="text" required/>
+            </div>
+            <div class="form-group input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+              </div>
+              <input class="form-control" placeholder="Senha" name="password" type="password" required/>
+            </div>
+            <div class="form-group">
+              <input type="submit" value="Criar Conta"/>
+            </div>
+            <p class="text-center">Tem conta ? <a href="/">Log In</a> </p>
+          </form>
+        </article>
+      </div>
+    </div>
+    <footer class="footer">
       <div class="container">
         <!-- FOOTER -->
       </div>
