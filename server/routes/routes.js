@@ -92,9 +92,10 @@ module.exports = app => {
         db.query(feedQuery, (error, results) => {
             for (var i = 0; i < results.length; i++) {
                 console.log(results[i].post);
-                var converter = new QuillDeltaToHtmlConverter(results[i].post);
+                var cfg = {};
+                var converter = new QuillDeltaToHtmlConverter(results[i].post, cfg);
                 console.log(converter);
-                var html = converter.convert();
+                assert.equal(converter.convert(), '<p></p>');
                 console.log(html);
                 results[i].post = html;                
             }
