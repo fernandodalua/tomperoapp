@@ -89,7 +89,7 @@
 			<ul class="timeline">
 				<% for(var i = 0; i < feed.length; i++){ %>
 				<li>
-					<a href="#"><%= feed[i].fullname %></a>
+					<a href="/profile/<%= feed[i].id_account %>"><%= feed[i].fullname %></a>
 					<a href="#" class="float-right"><%= feed[i].date_post %></a>
 					<div class="card sticky-top" style="margin:0; border: none !important;">
 						<p><%= feed[i].post %></p>
