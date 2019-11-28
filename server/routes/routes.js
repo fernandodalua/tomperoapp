@@ -163,7 +163,7 @@ module.exports = app => {
         });        
     });
 
-    app.post("/savenew", (request, response) => {
+    app.post('/savenew', (request, response) => {
         if (request.session.loggedin) {
             let id_user = request.session.id_user;
             let fullname = request.body.fullname;
@@ -172,7 +172,7 @@ module.exports = app => {
             let username = request.body.username;
             let password = request.body.password;
 
-            let updateQuery = "UPDATE accounts set fullname = '" + fullname + "', email = '" + email + "', description = '" + description + "', username = '" + username + "', password = '" + password + "' where id = " + id_user
+            let updateQuery = "UPDATE accounts set fullname = '" + fullname + "', email = '" + email + "', description = '" + description + "', username = '" + username + "', password = '" + password + "' where id = " + id_user;
             db.query(updateQuery, (error, results) => {
                 if (error) {
                     response.send('Erro: ' + error + ' ' + id_user + ' ' + updateQuery);
@@ -182,6 +182,27 @@ module.exports = app => {
                     }, 1000);
                 }
             });
+        } else {
+            response.render('index');
         }
-    }); 
+    });
+
+    app.post('updatephoto', upload.single('file'), (request, response) => {
+        if (request.session.loggedin) {
+            let id_user = request.session.id_user;
+            if (request.file) {
+                let file = request.file
+                let updatePhoto = "UPDATE accounts set photo = '" + file.filename + "' where id = " + id_user;
+                db.query(updatePhoto, (error, results) => {
+                    if (error) {
+                        response.send('Erro: ' + error + ' ' + id_user + ' ' + file.filename + ' ' + updatePhoto);
+                    }
+                });
+            } else {
+                response.redirect('/profile');
+            }
+        } else {
+            response.render('index');
+        }
+    });
 }
