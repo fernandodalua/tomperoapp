@@ -1,6 +1,6 @@
 const mysql = require('mysql');
 const multer = require('multer');
-const { convertTextToDelta } = require('node-quill-converter');
+const { convertDeltaToHtml } = require('node-quill-converter');
 
 const db = mysql.createConnection({
 	host     : 'localhost',
