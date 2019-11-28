@@ -163,20 +163,24 @@ module.exports = app => {
     });
 
     app.post("/savenew", (request, response) => {
-        let id_user = request.session.id_user;
-        let fullname = request.body.fullname;
-        let email = request.body.email;
-        let description = request.body.description;
-        let username = request.body.username;
-        let password = request.body.password;
+        if (request.session.loggedin) {
+            let id_user = request.session.id_user;
+            let fullname = request.body.fullname;
+            let email = request.body.email;
+            let description = request.body.description;
+            let username = request.body.username;
+            let password = request.body.password;
 
-        let updateQuery = "UPDATE accounts set fullname = '" + fullname + "', email = '" + email + "', description = '" + description + "', username = '" + username + "', password = '" + password +"' where id = "+id_user
-        db.query(updateQuery, (error, results) => {
-            if (error) {
-                response.send('Erro: ' + error + ' ' + id_user + ' ' + updateQuery);
-            } else {
-                response.render('home', { account: account, feed: feed });
-            }
-        });        
+            let updateQuery = "UPDATE accounts set fullname = '" + fullname + "', email = '" + email + "', description = '" + description + "', username = '" + username + "', password = '" + password + "' where id = " + id_user
+            db.query(updateQuery, (error, results) => {
+                if (error) {
+                    response.send('Erro: ' + error + ' ' + id_user + ' ' + updateQuery);
+                } else {
+                    setTimeout(function () {
+                        response.redirect('/home');
+                    }, 1000);
+                }
+            });
+        }
     }); 
 }
