@@ -32,48 +32,56 @@
 		          </div>	                           
 	          </div>		
 			    </div>
-			    <div class="col-md-6" style="border: none !important;">				
-	          <div class="card gedf-card" style="border: none !important;">
-					    <div class="input-group mb-3">
-						    <div class="input-group-prepend">
-						      <span class="input-group-text"> <i class="fa fa-user"></i></span>
-						    </div>
-						    <input type="text" name="fullname" class="form-control" placeholder="Nome completo" aria-label="Nome completo" aria-describedby="basic-addon1" require/>
-					    </div>
+			    <div class="col-md-6" style="border: none !important;">
+            <form action="savenew" method="POST">
+              <div class="card gedf-card" style="border: none !important;">
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">
+                      <i class="fa fa-user"></i>
+                    </span>
+                  </div>
+                  <input type="text" name="fullname" class="form-control" placeholder="Nome completo" aria-label="Nome completo" aria-describedby="basic-addon1" require=""/>
+                </div>
 
-					    <div class="input-group mb-3">
-						    <div class="input-group-append">
-						      <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
-						    </div>
-						    <input type="email" name="email" class="form-control" placeholder="E-mail" aria-label="E-mail" aria-describedby="basic-addon2"/>			  	
-					    </div>
-					    <div class="input-group">
-						    <div class="input-group-prepend">
-							    <span class="input-group-text">Descrição</span>
-						    </div>
-						    <textarea class="form-control" name="description" aria-label="Descrição"></textarea>
-					    </div>
-					    <br/>
-					    <label for="basic-url">Dados de acesso</label>			
-					    <div class="input-group mb-3">
-						    <div class="input-group-prepend">
-						      <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
-						    </div>
-						    <input type="text" name="username" class="form-control" id="basic-url" aria-describedby="basic-addon3" placeholder="Usuário" require/>
-					    </div>
+                <div class="input-group mb-3">
+                  <div class="input-group-append">
+                    <span class="input-group-text">
+                      <i class="fa fa-envelope"></i>
+                    </span>
+                  </div>
+                  <input type="email" name="email" class="form-control" placeholder="E-mail" aria-label="E-mail" aria-describedby="basic-addon2"/>
+                </div>
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">Descrição</span>
+                  </div>
+                  <textarea class="form-control" name="description" aria-label="Descrição"></textarea>
+                </div>
+                <br/>
+                <label for="basic-url">Dados de acesso</label>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">
+                      <i class="fa fa-lock"></i>
+                    </span>
+                  </div>
+                  <input type="text" name="username" class="form-control" id="basic-url" aria-describedby="basic-addon3" placeholder="Usuário" require=""/>
+                </div>
 
-					    <div class="input-group mb-3">
-						    <div class="input-group-prepend">
-                  <span class="input-group-text">
-                    <i class="fa fa-lock"></i>
-                  </span>
-						    </div>
-						    <input type="text" class="form-control" placeholder="Senha" name="password" aria-label="Senha" require/>		  	
-					    </div>
-              <div class="btn-group">
-                <button type="submit" class="btn btn-primary">Publicar</button>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">
+                      <i class="fa fa-lock"></i>
+                    </span>
+                  </div>
+                  <input type="text" class="form-control" placeholder="Senha" name="password" aria-label="Senha" require=""/>
+                </div>
+                <div class="btn-group">
+                  <button type="submit" class="btn btn-primary">Salvar</button>
+                </div>
               </div>
-	          </div>	                
+            </form>
 			    </div>
 		    </div>
 		  </div>         

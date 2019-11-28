@@ -161,4 +161,8 @@ module.exports = app => {
             }                        
         });        
     });
+
+    app.post("/savenew", (request, response) => {
+        response.send('oi');
+    }); 
 }
