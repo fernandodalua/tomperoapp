@@ -173,9 +173,9 @@ module.exports = app => {
         let updateQuery = "UPDATE accounts set fullname = '" + fullname + "', email = '" + email + "', description = '" + description + "', username = '" + username + "', password = '" + password +"' where id = "+id_user
         db.query(updateQuery, (error, results) => {
             if (error) {
-                res.send('Erro: ' + error + ' ' + id_user + ' ' + updateQuery);
+                response.send('Erro: ' + error + ' ' + id_user + ' ' + updateQuery);
             } else {
-                res.render('home', { account: account, feed: feed });
+                response.render('home', { account: account, feed: feed });
             }
         });        
     }); 
