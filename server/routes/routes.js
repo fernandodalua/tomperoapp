@@ -187,17 +187,28 @@ module.exports = app => {
         }
     });
 
-    app.post('updatephoto', upload.single('file'), (request, response) => {
-        let id_user = request.session.id_user;
-        if (request.file) {
-            let file = request.file
-            let updatePhoto = "UPDATE accounts set photo = '" + file.filename + "' where id = " + id_user;
-            db.query(updatePhoto, (error, results) => {
-                if (error) {
-                    response.send('Erro: ' + error + ' ' + id_user + ' ' + file.filename + ' ' + updatePhoto);
-                }
-            });
-        
+    app.post('/updatephoto', upload.single('file'), (request, response) => {
+        if (request.session.loggedin) {
+            let id_user = request.session.id_user;
+            if (request.file) {
+                let file = request.file
+                let updatePhoto = "UPDATE accounts set photo = '" + file.filename + "' where id = " + id_user;
+                db.query(updatePhoto, (error, results) => {
+                    if (error) {
+                        response.send('Erro: ' + error + ' ' + id_user + ' ' + file.filename + ' ' + updatePhoto);
+                    }
+                    let userQuery = "SELECT a.id as id_user, a.username, a.password, a.email, a.fullname, a.sex, YEAR(FROM_DAYS(TO_DAYS(NOW())-TO_DAYS(a.birthday))) AS idade, a.description, p.profile, a.photo FROM accounts a inner join profile p on a.id_profile = p.id WHERE a.id = '" + id_user + "'";
+                    db.query(userQuery, (error, results) => {
+                        if (results.length > 0) {
+                            account = results;
+                        }
+                    });
+                    response.redirect('/profile');
+                });
+
+            } else {
+                response.redirect('/profile');
+            }
         } else {
             response.render('index');
         }
