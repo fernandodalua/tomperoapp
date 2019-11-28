@@ -95,8 +95,9 @@ module.exports = app => {
 					request.session.id_user = results[0].id_user;
 					account = results;
 					response.render('home', {account: results, feed: feed});
-				} else {
-					response.send('Incorrect Username and/or Password!');
+                } else {
+                    response.send("Senha incorreta");
+                    response.render('index');
 				}				
 			});
 		} else {
