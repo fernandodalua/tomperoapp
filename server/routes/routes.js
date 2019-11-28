@@ -93,7 +93,7 @@ module.exports = app => {
             for (var i = 0; i < results.length; i++) {
                 console.log(results[i].post);
                 let html = convertDeltaToHtml(results[i].post)
-                console.log(html);
+                console.log(html.innerHTML);
                 results[i].post = html;                
             }
             feed = results;
