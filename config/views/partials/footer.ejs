@@ -28,4 +28,15 @@
     placeholder: 'Ingredientes',
     theme: 'snow'  // or 'bubble'
   });
+  
+  var form = document.querySelector('.form-post');
+  form.onsubmit = function() {
+  // Populate hidden form on submit
+  var about = document.querySelector('input[name=message]');
+  about.value = JSON.stringify(quill.getContents());
+  
+  console.log("Submitted", $(form).serialize(), $(form).serializeArray());
+  
+  return false;
+};
 </script>

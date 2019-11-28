@@ -36,7 +36,7 @@
 		<div class="col-md-6">
       <!--- \\\\\\\Post-->
       <div class="card gedf-card">
-        <form action="post" method="POST" enctype="multipart/form-data">
+        <form action="post" method="POST" class="form-post" enctype="multipart/form-data">
           <div class="card-header">
             <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
               <li class="nav-item">
@@ -58,10 +58,12 @@
                 <div id="editor">
                   <p>Hello World!</p>
                 </div>-->
+                
+                <label class="sr-only" for="message">post</label>
+                <input name="message" type="hidden"/>
                 <div id="editor-container">
                 </div>
-                <label class="sr-only" for="message">post</label>
-                <textarea class="form-control" id="message" name="message" rows="3" placeholder="Qual a boa de hoje?"></textarea>
+                <!--<textarea class="form-control" id="message" name="message" rows="3" placeholder="Qual a boa de hoje?"></textarea>-->
               </div>
             </div>
             <div class="tab-pane fade" id="images" role="tabpanel" aria-labelledby="images-tab">
