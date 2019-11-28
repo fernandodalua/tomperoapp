@@ -65,7 +65,7 @@ module.exports = app => {
 
         db.query(feedQuery, (error, results) => {
             for (var i = 0; i < results.length; i++) {
-                let html;
+                let html = '';
                 html = convertDeltaToHtml(results[i].post);
                 results[i].post = html;
                 console.log(html);
