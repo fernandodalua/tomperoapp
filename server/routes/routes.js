@@ -72,7 +72,7 @@ module.exports = app => {
 				response.render('home', {account: results, feed: feed});
 			} else {
 				response.send('Incorrect Username and/or Password!');
-			}				
+			}
 		});
 	});
 
