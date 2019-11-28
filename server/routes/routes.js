@@ -1,5 +1,4 @@
 const mysql = require('mysql');
-import * as assert from 'assert';
 const multer = require('multer');
 var QuillDeltaToHtmlConverter = require('quill-delta-to-html').QuillDeltaToHtmlConverter;
 
@@ -96,7 +95,7 @@ module.exports = app => {
                 var cfg = {};
                 var converter = new QuillDeltaToHtmlConverter(results[i].post, cfg);
                 console.log(converter);
-                assert.equal(converter.convert(), '<p></p>');
+                var html = converter.convert();
                 console.log(html);
                 results[i].post = html;                
             }
