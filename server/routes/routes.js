@@ -42,8 +42,7 @@ module.exports = app => {
 	
 	app.post('/authnew', function(request, response) {
 		let fullname = request.body.fullname;
-		let email = request.body.email;
-		let telefone = request.body.telefone;
+		let email = request.body.email;		
 		let profile = request.body.profile;
 		let password = request.body.password;
 		let username = request.body.username;
@@ -64,9 +63,14 @@ module.exports = app => {
 		let userQuery = "SELECT a.id as id_user, a.username, a.password, a.email, a.fullname, a.sex, YEAR(FROM_DAYS(TO_DAYS(NOW())-TO_DAYS(a.birthday))) AS idade, a.description, p.profile, a.photo FROM accounts a inner join profile p on a.id_profile = p.id WHERE a.id = '"+ id_user +"'";
         let feedQuery = "SELECT c.id as id_account, c.fullname, date_format(p.date_post, '%d/%m/%Y %H:%m:%s') as date_post, p.post, f.photo FROM publications p inner join accounts c on p.id_account = c.id left join photo_publications f on p.id = f.id_publication order by p.date_post desc";
 
-		db.query(feedQuery, (error, results) => {
-			feed = results;
-		});
+        db.query(feedQuery, (error, results) => {
+            for (var i = 0; i < results.length; i++) {
+                let html;
+                html = convertDeltaToHtml(results[i].post);
+                results[i].post = html;
+            }
+            feed = results;
+        });
 
 		db.query(userQuery, (error, results) => {
             if (results.length > 0) {
@@ -87,7 +91,8 @@ module.exports = app => {
 
         db.query(feedQuery, (error, results) => {
             for (var i = 0; i < results.length; i++) {
-                let html = convertDeltaToHtml(results[i].post);
+                let html;
+                html = convertDeltaToHtml(results[i].post);
                 results[i].post = html;
             }
             feed = results;
@@ -133,9 +138,14 @@ module.exports = app => {
 					});
 				}
                 let feedQuery = "SELECT c.id as id_account, c.fullname, date_format(p.date_post, '%d/%m/%Y %H:%m:%s') as date_post, p.post, f.photo FROM publications p inner join accounts c on p.id_account = c.id left join photo_publications f on p.id = f.id_publication order by p.date_post desc";		
-				db.query(feedQuery, (error, results) => {
-					feed = results;
-				});
+                db.query(feedQuery, (error, results) => {
+                    for (var i = 0; i < results.length; i++) {
+                        let html;
+                        html = convertDeltaToHtml(results[i].post);
+                        results[i].post = html;
+                    }
+                    feed = results;
+                });
 				setTimeout(function() {
 					response.redirect('/post');
 				}, 1000);
