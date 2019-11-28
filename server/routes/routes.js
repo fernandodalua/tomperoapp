@@ -187,20 +187,17 @@ module.exports = app => {
         }
     });
 
-    app.post('/updatephoto', upload.single('file'), (request, response) => {
-        if (request.session.loggedin) {
-            let id_user = request.session.id_user;
-            if (request.file) {
-                let file = request.file
-                let updatePhoto = "UPDATE accounts set photo = '" + file.filename + "' where id = " + id_user;
-                db.query(updatePhoto, (error, results) => {
-                    if (error) {
-                        response.send('Erro: ' + error + ' ' + id_user + ' ' + file.filename + ' ' + updatePhoto);
-                    }
-                });
-            } else {
-                response.redirect('/profile');
-            }
+    app.post('updatephoto', upload.single('file'), (request, response) => {
+        let id_user = request.session.id_user;
+        if (request.file) {
+            let file = request.file
+            let updatePhoto = "UPDATE accounts set photo = '" + file.filename + "' where id = " + id_user;
+            db.query(updatePhoto, (error, results) => {
+                if (error) {
+                    response.send('Erro: ' + error + ' ' + id_user + ' ' + file.filename + ' ' + updatePhoto);
+                }
+            });
+        
         } else {
             response.render('index');
         }
