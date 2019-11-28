@@ -71,7 +71,7 @@ module.exports = app => {
 			if (results.length > 0) {					
 				response.render('home', {account: results, feed: feed});
 			} else {
-				response.send('Incorrect Username and/or Password!');
+                response.render('index');
 			}
 		});
 	});
