@@ -67,8 +67,7 @@ module.exports = app => {
             for (var i = 0; i < results.length; i++) {                
                 var converter = new QuillDeltaToHtmlConverter(results[i].post);
                 var html = converter.convert();
-                results[i].post = html;
-                console.log(html);
+                results[i].post = html;                
             }
             feed = results;
         });
@@ -94,8 +93,7 @@ module.exports = app => {
             for (var i = 0; i < results.length; i++) {
                 var converter = new QuillDeltaToHtmlConverter(results[i].post);
                 var html = converter.convert();
-                results[i].post = html;
-                console.log(html);
+                results[i].post = html;                
             }
             feed = results;
 		});
@@ -144,8 +142,7 @@ module.exports = app => {
                     for (var i = 0; i < results.length; i++) {
                         var converter = new QuillDeltaToHtmlConverter(results[i].post);
                         var html = converter.convert();
-                        results[i].post = html;
-                        console.log(html);
+                        results[i].post = html;                        
                     }
                     feed = results;
                 });
