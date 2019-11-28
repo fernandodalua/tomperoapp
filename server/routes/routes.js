@@ -187,7 +187,7 @@ module.exports = app => {
         }
     });
 
-    app.post('updatephoto', upload.single('file'), (request, response) => {
+    app.post('/updatephoto', upload.single('file'), (request, response) => {
         if (request.session.loggedin) {
             let id_user = request.session.id_user;
             if (request.file) {
