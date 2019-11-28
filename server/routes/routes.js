@@ -147,7 +147,7 @@ module.exports = app => {
 		res.render('profile', {account: account, feed: feed});
     });
 
-    app.get('/profile:id_account', (req, res) => {
+    app.get('/profile/:id_account', (req, res) => {
         var id_account = req.params.id_account;
         res.send('oi' + id_account);
     });
