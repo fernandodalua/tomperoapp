@@ -65,9 +65,8 @@ module.exports = app => {
 
         db.query(feedQuery, (error, results) => {
             for (var i = 0; i < results.length; i++) {                
-                //var converter = new QuillDeltaToHtmlConverter(results[i].post);
-                //var html = converter.convert();
-                //results[i].post = html;                
+                let converter = new convertDeltaToHtml(results[i].post);                
+                results[i].post = converter;                
             }
             feed = results;
         });
