@@ -119,8 +119,9 @@ module.exports = app => {
 	
 	app.post('/post', upload.single('file'), (request, response) => {
 		if (request.session.loggedin) {
-			let message = request.body.message;
-            let id_user = request.session.id_user;                        
+            let message = request.body.message;
+            message = convertDeltaToHtml(message);
+            let id_user = request.session.id_user;            
 
 			let userQuery = "INSERT INTO publications (id_account, date_post, post) values ("+id_user+", NOW(), '"+message+"')";
 
