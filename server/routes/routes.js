@@ -118,10 +118,10 @@ module.exports = app => {
 	
 	app.post('/post', upload.single('file'), (request, response) => {
         if (request.session.loggedin) {
-            let message = request.body.message;
+            var message = request.body.message;
             message = message.slice(1);
             let id_user = request.session.id_user;            
-
+            console.log(message);
             let userQuery = "INSERT INTO publications (id_account, date_post, post) values (" + id_user + ", NOW(), '" + message + "')";
             console.log(userQuery);
 
