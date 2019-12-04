@@ -122,9 +122,8 @@ module.exports = app => {
             message = message.slice(1);
             message = String(message).replace(/'/g, '"');
             let id_user = request.session.id_user;            
-            console.log(message);
-            let userQuery = "INSERT INTO publications (id_account, date_post, post) values (" + id_user + ", NOW(), '" + message + "')";
-            console.log(userQuery);
+            
+            let userQuery = "INSERT INTO publications (id_account, date_post, post) values (" + id_user + ", NOW(), '" + message + "')";            
 
 			db.query(userQuery, (error, results) => {
 				if (error){
