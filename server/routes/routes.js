@@ -120,7 +120,7 @@ module.exports = app => {
         if (request.session.loggedin) {
             var message = request.body.message;
             message = message.slice(1);
-            message = String(message).replace("'/", '"');
+            message = String(message).replace(/'/g, '"');
             let id_user = request.session.id_user;            
             console.log(message);
             let userQuery = "INSERT INTO publications (id_account, date_post, post) values (" + id_user + ", NOW(), '" + message + "')";
