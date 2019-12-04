@@ -1,6 +1,5 @@
 const mysql = require('mysql');
 const multer = require('multer');
-const { convertDeltaToHtml } = require('node-quill-converter');
 
 const db = mysql.createConnection({
 	host     : 'localhost',
@@ -65,9 +64,9 @@ module.exports = app => {
 
         db.query(feedQuery, (error, results) => {
             for (var i = 0; i < results.length; i++) {                
-                let converter = convertDeltaToHtml(results[i].post);
+                /*let converter = convertDeltaToHtml(results[i].post);
                 console.log(converter);
-                results[i].post = converter;                
+                results[i].post = converter;*/
             }
             feed = results;
         });
@@ -119,8 +118,7 @@ module.exports = app => {
 	
 	app.post('/post', upload.single('file'), (request, response) => {
 		if (request.session.loggedin) {
-            let message = request.body.message;
-            message = convertDeltaToHtml(message);
+            let message = request.body.message;            
             let id_user = request.session.id_user;            
 
 			let userQuery = "INSERT INTO publications (id_account, date_post, post) values ("+id_user+", NOW(), '"+message+"')";
