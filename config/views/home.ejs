@@ -137,11 +137,11 @@
     <% include partials/footer %>
     <script>
       $('#btnNext').click(function(){
-      $('#myTab > .active').next('li').find('a').trigger('click');
+      $('#images-tab').trigger('click');
       });
 
       $('#btnPrevious').click(function(){
-      $('#myTab > .active').prev('li').find('a').trigger('click');
+      $('#posts-tab').trigger('click');
       });
 
     </script>
