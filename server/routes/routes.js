@@ -119,7 +119,7 @@ module.exports = app => {
 	app.post('/post', upload.single('file'), (request, response) => {
         if (request.session.loggedin) {
             var message = request.body.message;
-            message = message.slice(1);
+            //message = message.slice(1);
             message = String(message).replace(/'/g, '"');
             let id_user = request.session.id_user;            
             

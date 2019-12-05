@@ -35,6 +35,29 @@
 		</div>
 		<div class="col-md-6">
       <!--- \\\\\\\Post-->
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+        Launch demo modal
+      </button>
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              ...
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="card gedf-card">
         <form action="post" method="POST" class="form-post" enctype="multipart/form-data">
           <div class="card-header">
@@ -74,10 +97,6 @@
             <div class="btn-toolbar justify-content-between">
               <div class="btn-group">
                 <button type="submit" class="btn btn-primary">Publicar</button>
-                &nbsp;
-                <button class="btn btn-primary" id="btnNext">Próximo</button>
-                &nbsp;
-                <button class="btn btn-primary" id="btnPrevious">Voltar</button>
               </div>
               <div class="btn-group">
                 <button id="btnGroupDrop1" type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -135,14 +154,6 @@
     </footer>
     <% include partials/footer %>
     <script>
-      $('#btnNext').click(function(){
-      $('#images-tab').trigger('click');
-      });
-
-      $('#btnPrevious').click(function(){
-      $('#posts-tab').trigger('click');
-      });
-
     </script>
   </body>
 </html>
