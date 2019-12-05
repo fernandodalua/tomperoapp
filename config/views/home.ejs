@@ -77,8 +77,8 @@
             <div class="btn-toolbar justify-content-between">
               <div class="btn-group">
                 <button type="submit" class="btn btn-primary">Publicar</button>
-                <span class="previous-tab">previous</span>
-                <span class="next-tab">next</span>
+                <a class="btn btn-primary btnNext" >Next</a>
+                <a class="btn btn-primary btnPrevious" >Previous</a>
               </div>
               <div class="btn-group">
                 <button id="btnGroupDrop1" type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -136,22 +136,12 @@
     </footer>
     <% include partials/footer %>
     <script>
-      jQuery('body').on('click','.next-tab', function(){
-        var next = jQuery('.nav-tabs > .active').next('li');
-        if(next.length){
-        next.find('a').trigger('click');
-        }else{
-        jQuery('#myTabs a:first').tab('show');
-        }
+      $('.btnNext').click(function(){
+      $('.nav-tabs > .active').next('li').find('a').trigger('click');
       });
 
-      jQuery('body').on('click','.previous-tab', function(){
-        var prev = jQuery('.nav-tabs > .active').prev('li')
-        if(prev.length){
-        prev.find('a').trigger('click');
-        }else{
-        jQuery('#myTabs a:last').tab('show');
-        }
+      $('.btnPrevious').click(function(){
+      $('.nav-tabs > .active').prev('li').find('a').trigger('click');
       });
 
     </script>
