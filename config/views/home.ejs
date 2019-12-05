@@ -11,7 +11,7 @@
     <main role="main" class="container">
     <div class="container mt-5 mb-5">
 	<div class="row mb-3">
-		<div class="col-md-3">		
+		<div class="col-md-3">
 			
 			<div class="card flex-md-row mb-4 box-shadow h-md-250">
 	            <div class="card-body d-flex flex-column align-items-start">
@@ -48,35 +48,37 @@
             </ul>
         </div>
           <div class="card-body">
-          <div class="tab-content" id="myTabContent">
-            <div class="tab-pane fade show active" id="posts" role="tabpanel" aria-labelledby="posts-tab">
-              <div class="form-group">
-                <!--<div id="toolbar">
-                  <button class="ql-bold">Bold</button>
-                  <button class="ql-italic">Italic</button>
-                </div>
-                <div id="editor">
-                  <p>Hello World!</p>
-                </div>-->
+            <div class="tab-content" id="myTabContent">
+              <div class="tab-pane fade show active" id="posts" role="tabpanel" aria-labelledby="posts-tab">
+                <div class="form-group">
+                  <!--<div id="toolbar">
+                    <button class="ql-bold">Bold</button>
+                    <button class="ql-italic">Italic</button>
+                  </div>
+                  <div id="editor">
+                    <p>Hello World!</p>
+                  </div>-->
                 
-                <label class="sr-only" for="message">post</label>
-                <input name="message" type="hidden"/>                
-                <textarea class="form-control" id="message" name="message" rows="3"></textarea>
-              </div>
-            </div>
-            <div class="tab-pane fade" id="images" role="tabpanel" aria-labelledby="images-tab">
-              <div class="form-group">
-                <div class="custom-file">
-                  <input type="file" class="custom-file-input" name="file" id="customFile" multiple/>
-                  <label class="custom-file-label" for="customFile">Upload da imagem</label>
+                  <label class="sr-only" for="message">post</label>
+                  <input name="message" type="hidden"/>                
+                  <textarea class="form-control" id="message" name="message" rows="3"></textarea>
                 </div>
               </div>
-              <div class="py-4"></div>
-            </div>
+              <div class="tab-pane fade" id="images" role="tabpanel" aria-labelledby="images-tab">
+                <div class="form-group">
+                  <div class="custom-file">
+                    <input type="file" class="custom-file-input" name="file" id="customFile" multiple/>
+                    <label class="custom-file-label" for="customFile">Upload da imagem</label>
+                  </div>
+                </div>
+                <div class="py-4"></div>
+              </div>
             </div>
             <div class="btn-toolbar justify-content-between">
               <div class="btn-group">
                 <button type="submit" class="btn btn-primary">Publicar</button>
+                <span class="previous-tab">previous</span>
+                <span class="next-tab">next</span>
               </div>
               <div class="btn-group">
                 <button id="btnGroupDrop1" type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -133,5 +135,25 @@
       </div>
     </footer>
     <% include partials/footer %>
+    <script>
+      jQuery('body').on('click','.next-tab', function(){
+        var next = jQuery('.nav-tabs > .active').next('li');
+        if(next.length){
+        next.find('a').trigger('click');
+        }else{
+        jQuery('#myTabs a:first').tab('show');
+        }
+      });
+
+      jQuery('body').on('click','.previous-tab', function(){
+        var prev = jQuery('.nav-tabs > .active').prev('li')
+        if(prev.length){
+        prev.find('a').trigger('click');
+        }else{
+        jQuery('#myTabs a:last').tab('show');
+        }
+      });
+
+    </script>
   </body>
 </html>
