@@ -38,12 +38,23 @@
       <div class="card gedf-card">
         <form action="post" method="POST" class="form-post" enctype="multipart/form-data">
           <div class="card-header">
-            <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
+            <!--<ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
               <li class="nav-item">
                 <a class="nav-link active" id="posts-tab" data-toggle="tab" href="#posts" role="tab" aria-controls="posts" aria-selected="true">Escreva aqui</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" id="images-tab" data-toggle="tab" role="tab" aria-controls="images" aria-selected="false" href="#images">Imagens</a>
+              </li>
+            </ul>-->
+            <ul class="nav nav-tabs">
+              <li class="active">
+                <a href="#tab1" data-toggle="tab">Shipping</a>
+              </li>
+              <li>
+                <a href="#tab2" data-toggle="tab">Quantities</a>
+              </li>
+              <li>
+                <a href="#tab3" data-toggle="tab">Summary</a>
               </li>
             </ul>
         </div>
@@ -137,11 +148,11 @@
     <% include partials/footer %>
     <script>
       $('.btnNext').click(function(){
-      $('.nav-tabs > .active').next('li').find('a').trigger('click');
+        $('.nav-tabs > .active').next('li').find('a').trigger('click');
       });
 
       $('.btnPrevious').click(function(){
-      $('.nav-tabs > .active').prev('li').find('a').trigger('click');
+        $('.nav-tabs > .active').prev('li').find('a').trigger('click');
       });
 
     </script>
