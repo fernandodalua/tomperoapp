@@ -49,7 +49,15 @@
               </button>
             </div>
             <div class="modal-body">
-              ...
+              <form action="post" method="POST" class="form-post" enctype="multipart/form-data">
+                <div class="form-group">
+                  <input type="text" class="form-control" name="title" placeholder="Título da receita" required=""/>
+                </div>
+                <div class="form-group">
+                  <label for="message">Escreva os ingredientes aqui:</label>
+                  <textarea class="form-control" id="message" name="message" rows="3"></textarea>
+                </div>              
+              </form>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -152,8 +160,6 @@
         <!-- FOOTER -->
       </div>
     </footer>
-    <% include partials/footer %>
-    <script>
-    </script>
+    <% include partials/footer %>    
   </body>
 </html>
