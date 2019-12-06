@@ -285,6 +285,6 @@ module.exports = app => {
     });
 
     app.get('/recipe', (request, response) => {
-        res.render('recipe');
+        response.render('recipe');
     });
 }
