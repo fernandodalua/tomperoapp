@@ -17,6 +17,12 @@
 	  <h5 class="card-title"><%= feed[i].title %></h5>
 	  <p class="card-text"><%- feed[i].post %></p>
 	</div>
+	<ul class="list-group list-group-flush">
+		<li class="list-group-item">                  
+			<i class="fa fa-balance-scale">&nbsp;</i><%= feed[i].portion %>&nbsp;Porções
+			<p class="float-right"><i class="fa fa-clock-o"></i>&nbsp;<%= feed[i].preparation_time %>&nbsp;Minutos</p>
+		</li>
+	</ul>
   </div>
   <% } %>
   </div>
