@@ -188,6 +188,7 @@ module.exports = app => {
             let fullname = request.body.fullname;
             let email = request.body.email;
             let description = request.body.description;
+            description = String(description).replace(/'/g, '"');
             let username = request.body.username;
             let password = request.body.password;
 
