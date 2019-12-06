@@ -9,9 +9,7 @@ module.exports = () => {
 	const app = express();	
 
 	app.use(session({
-		secret: 'secret',
-		resave: true,
-		saveUninitialized: true
+		secret: '1d2a3l4u5a'
 	}));
 
 	app.set('port', (process.env.PORT || 3000));
