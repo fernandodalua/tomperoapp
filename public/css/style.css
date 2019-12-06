@@ -81,3 +81,6 @@ ul.timeline > li:before {
     color: #FFFFFF;
 }
 
+.file{
+    display: none;
+}
