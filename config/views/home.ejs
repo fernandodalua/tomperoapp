@@ -114,6 +114,11 @@
 				<li>
 					<a href="/profile/<%= feed[i].id_account %>"><%= feed[i].fullname %></a>
 					<a href="#" class="float-right"><%= feed[i].date_post %></a>
+          <div class="card-header">
+            <h3 class="card-title">
+              <%= feed[i].title %>
+            </h3>
+          </div>
 					<div class="card sticky-top" style="margin:0; border: none !important;">
                         <%- feed[i].post %>
 						<%if (feed[i].photo) { %>
