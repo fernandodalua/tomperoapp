@@ -125,9 +125,10 @@
               <ul class="list-group list-group-flush">
                 <li class="list-group-item">                  
                   <i class="fa fa-balance-scale">&nbsp;</i><%= feed[i].portion %>&nbsp;Porções
+                  <i class="fa fa-clock-o float-right"></i>&nbsp;<%= feed[i].preparation_time %>&nbsp;Minutos
                 </li>
                 <li class="list-group-item">
-                  <i class="fa fa-clock-o"></i>&nbsp;<%= feed[i].preparation_time %>&nbsp;Minutos                  
+                  <i class="fa fa-clock-o float-right"></i>&nbsp;<%= feed[i].preparation_time %>&nbsp;Minutos                  
                 </li>
                 <li class="list-group-item">
                   <a href="/profile/"<%= feed[i].id_account %>"><%= feed[i].fullname %></a>
@@ -135,7 +136,7 @@
                 </li>
               </ul>
               <div class="card-body">
-                <button class="btn"><i class="fa fa-home"></i></button>
+                <button class="btn-danger"><i class="fa fa-heart"></i></button>
               </div>
             </div>
           </li>
