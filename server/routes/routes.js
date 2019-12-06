@@ -134,7 +134,7 @@ module.exports = app => {
             }
 
             let userQuery = "INSERT INTO publications (id_account, date_post, post, title, portion, preparation_time) values (" + id_user + ", NOW(), '" + message + "', '" + title + "', " + portion + ", " + preparation_time + ")";            
-            console.log(userQuery);
+            
 			db.query(userQuery, (error, results) => {
 				if (error){
 					response.send('Erro: '+error +' '+ id_user +' '+ message +' '+ userQuery);
