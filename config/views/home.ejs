@@ -113,13 +113,13 @@
 				<% for(var i = 0; i < feed.length; i++){ %>
 				<li>
           <div class="card">
-            <%if (feed=""[i=""].photo="") { %>
+            <%if (feed[i].photo) { %>
             <img class="card-img-top" src="img/<%=feed[i].photo%>">
             <%}%>
               <div class="card-body">
                 <h5 class="card-title"><%= feed[i].title %></h5>
                 <p class="card-text">
-                  <%- feed=""[i=""].post="" %>
+                  <%- feed[i].post %>
                 </p>
               </div>
               <ul class="list-group list-group-flush">
