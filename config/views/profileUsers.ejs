@@ -1,5 +1,5 @@
 ﻿
-<!doctype html>
+<!doctype html> 
 <html lang="pt-br">
   <head>
   <% include partials/head %>
@@ -52,6 +52,22 @@
               </li>
               <% } %>
             </ul>
+
+			<ul class="timeline">
+				<% for(var i = 0; i < feedUser.length; i++){ %>
+				<li>
+					<a href="/profile/<%= feedUser[i].id_account %>"><%= feedUser[i].fullname %></a>
+					<a href="#" class="float-right"><%= feedUser[i].date_post %></a>
+					<div class="card sticky-top" style="margin:0; border: none !important;">
+                        <%- feedUser[i].post %>
+						<%if (feedUser[i].photo) { %>
+						<img src="img/<%=feedUser[i].photo%>" class="img-thumbnail">
+						<%}%>
+					</div>
+				</li>
+				<% } %>				
+			</ul>
+
           </div>
         <div class="col-md-3">
           <div class="card flex-md-row mb-4 box-shadow h-md-250">
