@@ -303,8 +303,17 @@ module.exports = app => {
 
     app.get('/recipe/:id_publication', (request, response) => {
         var id_publication = request.params.id_publication;
+        let id_user = request.session.id_user;
 
-        console.log(id_publication);
+        let newLike = "INSERT INTO likes (id_account, id_publications) values (" + id_user + ", " + id_publication + ")";
+        db.query(newLike, (error, results) => {
+            if (error) {
+                response.send('Erro: ' + error + ' ' + id_user + ' ' + id_publication + ' ' + newLike);
+            } else {
+                response.render('index');
+            }
+        });
+
         response.render('recipe', { feed: feed });
     });
 }
