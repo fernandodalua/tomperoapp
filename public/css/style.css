@@ -126,3 +126,7 @@ ul.timeline > li:before {
     margin-right: auto;
     //width: 50%;
 }
+
+.tox {
+    width: inherit;
+}
