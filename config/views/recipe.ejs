@@ -10,7 +10,7 @@
   <!-- -->
   <% for(var i = 0; i < feed.length; i++){ %>
   <div class="card text-white bg-dark mb-3">
-	<%if (account[0].photo) { %>
+	<%if (feed[i].photo) { %>
 	<img class="card-img-top" src="img/<%=feed[i].photo%>" alt="Card image cap">
 	<% } %>
 	<div class="card-body">
