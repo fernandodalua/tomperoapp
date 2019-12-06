@@ -123,10 +123,10 @@ module.exports = app => {
             var portion = request.body.portion;
             var preparation_time = request.body.preparation_time;
             message = String(message).replace(/'/g, '"');
-            let id_user = request.session.id_user;            
+            let id_user = request.session.id_user;
             
             let userQuery = "INSERT INTO publications (id_account, date_post, post, title, portion, preparation_time) values (" + id_user + ", NOW(), '" + message + "', '" + title + "', " + portion + ", " + preparation_time + ")";            
-
+            console.log(userQuery);
 			db.query(userQuery, (error, results) => {
 				if (error){
 					response.send('Erro: '+error +' '+ id_user +' '+ message +' '+ userQuery);
