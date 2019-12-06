@@ -119,11 +119,13 @@ module.exports = app => {
 	app.post('/post', upload.single('file'), (request, response) => {
         if (request.session.loggedin) {
             var message = request.body.message;
-            //message = message.slice(1);
+            var title = request.body.title;
+            var portion = request.body.portion;
+            var preparation_time = request.body.preparation_time;
             message = String(message).replace(/'/g, '"');
             let id_user = request.session.id_user;            
             
-            let userQuery = "INSERT INTO publications (id_account, date_post, post) values (" + id_user + ", NOW(), '" + message + "')";            
+            let userQuery = "INSERT INTO publications (id_account, date_post, post, title, portion, preparation_time) values (" + id_user + ", NOW(), '" + message + "', '" + title + "', " + portion + ", " + preparation_time + ")";            
 
 			db.query(userQuery, (error, results) => {
 				if (error){
