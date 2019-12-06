@@ -37,7 +37,7 @@
 				</div>
                 <div class="col-md-6">
                        <br>
-                        <h4>Meu cardápio</h4>                        
+                        <h4>Meu cardápio</h4>                      
                         <ul class="timeline">
                             <% for(var i = 0; i < feedUser.length; i++){ %>
                                 <li>
@@ -50,7 +50,7 @@
                                     <div class="card sticky-top" style="margin:0; border: none !important;">
                                         <%- feedUser[i].post %>
                                             <%if (feedUser[i].photo) { %>
-                                                <img src="img/<%=feedUser[i].photo%>" class="img-thumbnail">
+                                                <img src="../img/<%=feedUser[i].photo%>" class="img-thumbnail">
                                                 <%}%>
                                     </div>
                                 </li>
