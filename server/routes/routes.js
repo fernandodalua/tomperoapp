@@ -283,4 +283,8 @@ module.exports = app => {
             response.render('index');
         }
     });
+
+    app.get('/recipe', (request, response) => {
+        res.render('recipe');
+    });
 }
