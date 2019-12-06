@@ -169,7 +169,7 @@ module.exports = app => {
 
     app.get('/profile/:id_account', (req, res) => {
         var id_account = req.params.id_account;
-        let profileUserQuery = "SELECT c.id as id_account, c.fullname, date_format(p.date_post, '%d/%m/%Y %H:%m:%s') as date_post, p.post, f.photo FROM publications p inner join accounts c on p.id_account = c.id left join photo_publications f on p.id = f.id_publication where c.id = "+id_account+" order by p.date_post desc"
+        let profileUserQuery = "SELECT c.id as id_account, c.fullname, date_format(p.date_post, '%d/%m/%Y %H:%m:%s') as date_post, p.post, f.photo, p.title, p.portion, p.preparation_time FROM publications p inner join accounts c on p.id_account = c.id left join photo_publications f on p.id = f.id_publication where c.id = "+id_account+" order by p.date_post desc"
         db.query(profileUserQuery, (error, results) => {
             if (error) {
                 res.send('Erro: ' + error + ' ' + id_account + ' ' + profileUserQuery);
