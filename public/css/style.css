@@ -80,8 +80,3 @@ ul.timeline > li:before {
     font-weight: bold;
     color: #FFFFFF;
 }
-
-.file {
-    visibility: hidden;
-    position: absolute;
-}
