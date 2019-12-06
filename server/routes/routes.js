@@ -23,7 +23,8 @@ module.exports = app => {
 	
 	let profile = {};
 	let account = {};
-	let feed = {};    
+    let feed = {};    
+    let news = {};
 
 	app.get('/', (req, res) => {
 		res.render('index')
@@ -86,15 +87,9 @@ module.exports = app => {
 		let password = request.body.password;
 
 		let userQuery = "SELECT a.id as id_user, a.username, a.password, a.email, a.fullname, a.sex, YEAR(FROM_DAYS(TO_DAYS(NOW())-TO_DAYS(a.birthday))) AS idade, a.description, p.profile, a.photo FROM accounts a inner join profile p on a.id_profile = p.id WHERE a.username = '"+ username +"' AND a.password = '"+ password +"'";
-        let feedQuery = "SELECT p.id as id_publication, c.id as id_account, c.fullname, date_format(p.date_post, '%d/%m/%Y %H:%m:%s') as date_post, p.post, f.photo, p.title, p.portion, p.preparation_time FROM publications p inner join accounts c on p.id_account = c.id left join photo_publications f on p.id = f.id_publication order by p.date_post desc";
+        let feedQuery = "SELECT p.id as id_publication, c.id as id_account, c.fullname, date_format(p.date_post, '%d/%m/%Y %H:%m:%s') as date_post, p.post, f.photo, p.title, p.portion, p.preparation_time FROM publications p inner join accounts c on p.id_account = c.id left join photo_publications f on p.id = f.id_publication order by p.date_post desc";        
 
-        db.query(feedQuery, (error, results) => {
-            /*for (var i = 0; i < results.length; i++) {
-                console.log(results[i].post);
-                let html = convertDeltaToHtml(results[i].post)
-                console.log(html.innerHTML);
-                results[i].post = html;
-            }*/
+        db.query(feedQuery, (error, results) => {            
             feed = results;
 		});
 
@@ -104,12 +99,16 @@ module.exports = app => {
 					request.session.loggedin = true;
 					request.session.username = username;
 					request.session.id_user = results[0].id_user;
-					account = results;
-					response.render('home', {account: results, feed: feed});
+                    account = results;
+                    let feedNews = "SELECT p.id as id_publication, c.id as id_account, c.fullname, date_format(p.date_post, '%d/%m/%Y %H:%m:%s') as date_post, p.post, f.photo, p.title, p.portion, p.preparation_time FROM publications p inner join accounts c on p.id_account = c.id left join photo_publications f on p.id = f.id_publication where c.id != " + results[0].id_user + " order by p.id desc limit 1";
+                    db.query(feedNews, (error, results) => {
+                        news = results;
+                    });
+                    response.render('home', { account: results, feed: feed, news: news});
                 } else {
                     //response.send('Senha incorreta');
                     response.render('index');
-				}				
+                }                
 			});
 		} else {
             response.render('index');
