@@ -7,11 +7,13 @@
 <body>
 <br/>
 <br/>
+<br/>
+<br/>
 <% include partials/menu %>
   <div class="card-columns">
   <!-- -->
   <% for(var i = 0; i < feed.length; i++){ %>
-  <div class="card text-white bg-dark mb-3">
+  <div class="card border-dark mb-3">
 	<%if (feed[i].photo) { %>
 	<img class="card-img-top" src="img/<%=feed[i].photo%>" alt="Card image cap">
 	<% } %>
