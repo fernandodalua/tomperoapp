@@ -51,18 +51,26 @@
                   <input type="text" class="form-control" name="title" placeholder="Título da receita" required=""/>
                 </div>
                 <div class="form-group">
-                  <label for="message">Escreva os ingredientes aqui:</label>
+                  <label for="message">Escreva a sua receita aqui e edite da forma que quiser !</label>
                   <textarea class="form-control" id="message" name="message" rows="3"></textarea>
                 </div>
-                <div class="form-group form-row">
-                  <input class="form-control" type="number" id="porcoes" placeholder="Porções"/>
-                  <div class="form-group input-group">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"> <i class="fa fa-user"></i> </span>
-                    </div>
-                    <input name="username" class="form-control" placeholder="Usuário" type="text" required/>
-                  </div>
-                </div>
+				        <div class="form-row">
+					        <div class="form-group input-group col-md-6">
+					          <div class="input-group-prepend">
+						        <span class="input-group-text"> <i class="fa fa-balance-scale"></i> </span>
+					          </div>
+					          <input class="form-control" type="number" id="porcoes" placeholder="Porções"/>
+					        </div>
+					        <div class="form-group input-group col-md-6">
+					          <div class="input-group-prepend">
+						        <span class="input-group-text"> <i class="fa fa-clock-o"></i> </span>
+					          </div>
+					          <input class="form-control" type="number" id="preparo" placeholder="Tempo de preparo"/>
+					          <div class="input-group-append">
+						        <span class="input-group-text" id="basic-addon2">minutos</span>
+					          </div>
+					        </div>
+				        </div>
                 <div class="form-group">                  
                     <input type="file" name="file" class="file" accept="image/*" />
                       <div class="input-group my-3">
