@@ -125,11 +125,11 @@ module.exports = app => {
             message = String(message).replace(/'/g, '"');
             let id_user = request.session.id_user;
 
-            if (portion == '') {
+            if (!portion) {
                 portion = 0;
             }
 
-            if (preparation_time == '') {
+            if (!preparation_time) {
                 preparation_time = 0;
             }
 
