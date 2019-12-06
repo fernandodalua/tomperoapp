@@ -54,11 +54,8 @@
                   </div>
                   <input type="email" name="email" value="<%=account[0].email%>" class="form-control" placeholder="E-mail" aria-label="E-mail" aria-describedby="basic-addon2"/>
                 </div>
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text">Descrição</span>
-                  </div>
-                  <textarea class="form-control" name="description" aria-label="Descrição"><%=account[0].description%></textarea>
+                <div class="input-group">                  
+                  <textarea class="form-control" name="description" aria-label="Descrição"><%- account[0].description%></textarea>
                 </div>
                 <br/>
                 <label for="basic-url">Dados de acesso</label>
