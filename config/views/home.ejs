@@ -128,11 +128,14 @@
                 </li>
                 <li class="list-group-item">
                   <i class="fa fa-clock-o"></i>&nbsp;<%= feed[i].preparation_time %>&nbsp;Minutos                  
-                </li>                
+                </li>
+                <li class="list-group-item">
+                  <a href="/profile/"<%= feed[i].id_account %>"><%= feed[i].fullname %></a>
+                  <a href="#" class="float-right"><%= feed[i].date_post %></a>
+                </li>
               </ul>
               <div class="card-body">
-                <a href="/profile/<%= feed[i].id_account %>"><%= feed[i].fullname %></a>
-                <a href="#" class="float-right"><%= feed[i].date_post %></a>
+                <button class="btn"><i class="fa fa-home"></i></button>
               </div>
             </div>
           </li>
