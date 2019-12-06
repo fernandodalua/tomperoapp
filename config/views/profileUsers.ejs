@@ -39,23 +39,35 @@
                        <br>
                         <h4>Meu cardápio</h4>                      
                         <ul class="timeline">
-                            <% for(var i = 0; i < feedUser.length; i++){ %>
-                                <li>
-                                    <a href="/profile/<%= feedUser[i].id_account %>">
-                                        <%= feedUser[i].fullname %>
-                                    </a>
-                                    <a href="#" class="float-right">
-                                        <%= feedUser[i].date_post %>
-                                    </a>
-                                    <div class="card sticky-top" style="margin:0; border: none !important;">
-                                        <%- feedUser[i].post %>
-                                            <%if (feedUser[i].photo) { %>
-                                                <img src="../img/<%=feedUser[i].photo%>" class="img-thumbnail">
-                                                <%}%>
-                                    </div>
-                                </li>
-                                <% } %>
-                        </ul>
+							<% for(var i = 0; i < feedUser.length; i++){ %>
+							<li>
+							  <div class="card">
+								<%if (feedUser[i].photo) { %>
+								<img class="card-img-top" src="../img/<%=feedUser[i].photo%>">
+								<%}%>
+								  <div class="card-body">
+									<h5 class="card-title text-primary"><%= feedUser[i].title %></h5>
+									<p class="card-text">
+									  <%- feedUser[i].post %>
+									</p>
+								  </div>
+								  <ul class="list-group list-group-flush">
+									<li class="list-group-item">                  
+									  <i class="fa fa-balance-scale">&nbsp;</i><%= feedUser[i].portion %>&nbsp;Porções
+									</li>
+									<li class="list-group-item">
+									  <i class="fa fa-clock-o"></i>&nbsp;<%= feedUser[i].preparation_time %>&nbsp;Minutos                  
+									</li>                
+								  </ul>
+								  <div class="card-body">
+									<a href="/profile/<%= feedUser[i].id_account %>"><%= feedUser[i].fullname %></a>
+									<a href="#" class="float-right"><%= feedUser[i].date_post %></a>
+								  </div>
+								</div>
+							  </li>
+							<% } %>
+						  </ul>
+
 
                     </div>
                     <div class="col-md-3">
