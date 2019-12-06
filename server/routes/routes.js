@@ -168,11 +168,53 @@ module.exports = app => {
 	});
 	
 	app.get('/post', (req, res) => {
-		res.render('home', {account: account, feed: feed});
+        let id_user = request.session.id_user;
+
+        let userQuery = "SELECT a.id as id_user, a.username, a.password, a.email, a.fullname, a.sex, YEAR(FROM_DAYS(TO_DAYS(NOW())-TO_DAYS(a.birthday))) AS idade, a.description, p.profile, a.photo FROM accounts a inner join profile p on a.id_profile = p.id WHERE a.id = '" + id_user + "'";
+        let feedQuery = "SELECT c.id as id_account, c.fullname, date_format(p.date_post, '%d/%m/%Y %H:%m:%s') as date_post, p.post, f.photo, p.title, p.portion, p.preparation_time FROM publications p inner join accounts c on p.id_account = c.id left join photo_publications f on p.id = f.id_publication order by p.date_post desc";
+
+        db.query(feedQuery, (error, results) => {
+            for (var i = 0; i < results.length; i++) {
+                /*let converter = convertDeltaToHtml(results[i].post);
+                console.log(converter);
+                results[i].post = converter;*/
+            }
+            feed = results;
+        });
+
+        db.query(userQuery, (error, results) => {
+            if (results.length > 0) {
+                account = results;
+                response.render('home', { account: results, feed: feed });
+            } else {
+                response.render('index');
+            }
+        });
 	});
 	
 	app.get('/profile', (req, res) => {
-		res.render('profile', {account: account, feed: feed});
+        let id_user = request.session.id_user;
+
+        let userQuery = "SELECT a.id as id_user, a.username, a.password, a.email, a.fullname, a.sex, YEAR(FROM_DAYS(TO_DAYS(NOW())-TO_DAYS(a.birthday))) AS idade, a.description, p.profile, a.photo FROM accounts a inner join profile p on a.id_profile = p.id WHERE a.id = '" + id_user + "'";
+        let feedQuery = "SELECT c.id as id_account, c.fullname, date_format(p.date_post, '%d/%m/%Y %H:%m:%s') as date_post, p.post, f.photo, p.title, p.portion, p.preparation_time FROM publications p inner join accounts c on p.id_account = c.id left join photo_publications f on p.id = f.id_publication order by p.date_post desc";
+
+        db.query(feedQuery, (error, results) => {
+            for (var i = 0; i < results.length; i++) {
+                /*let converter = convertDeltaToHtml(results[i].post);
+                console.log(converter);
+                results[i].post = converter;*/
+            }
+            feed = results;
+        });
+
+        db.query(userQuery, (error, results) => {
+            if (results.length > 0) {
+                account = results;
+                response.render('profile', { account: results, feed: feed });
+            } else {
+                response.render('index');
+            }
+        });
     });
 
     app.get('/profile/:id_account', (req, res) => {
