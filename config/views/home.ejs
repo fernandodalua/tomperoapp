@@ -102,8 +102,8 @@
                 <button type="button" class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#exampleModal">
                   Escreva a sua receita
                 </button>
-              </div>
-            </div>
+              </div>              
+            </div>            
         </div>        
       </div>
       <!-- Post /////-->
@@ -117,14 +117,7 @@
             <img class="card-img-top" src="img/<%=feed[i].photo%>">
             <%}%>
               <div class="card-body">
-                <div class="col-xs-8 col-xs-offset-2">
-                  <div class="col-xs-6 col-xs-offset-1" >
-                    <h5 class="card-title text-primary"><%= feed[i].title %></h5>  
-                  </div>
-                  <div class="col-xs-2 col-xs-offset-1" >
-                    <i class="fa fa-clock-o">
-                  </div>                  
-                </div>                
+                <h5 class="card-title text-primary"><%= feed[i].title %></h5>
                 <p class="card-text">
                   <%- feed[i].post %>
                 </p>
