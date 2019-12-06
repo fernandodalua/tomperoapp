@@ -186,7 +186,7 @@ module.exports = app => {
         db.query(userQuery, (error, results) => {
             if (results.length > 0) {
                 account = results;
-                response.render('home', { account: results, feed: feed });
+                response.render('home', { account: results, feed: feed, news: news });
             } else {
                 response.render('index');
             }
