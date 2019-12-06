@@ -287,7 +287,7 @@ module.exports = app => {
     app.get('/recipe', (request, response) => {
         let id_user = request.session.id_user;
         
-        let feedQuery = "SELECT p.id as id_publication, c.id as id_account, c.fullname, date_format(p.date_post, '%d/%m/%Y %H:%m:%s') as date_post, p.post, f.photo, p.title, p.portion, p.preparation_time FROM publications p inner join accounts c on p.id_account = c.id left join photo_publications f on p.id = f.id_publication order by p.date_post desc";
+        let feedQuery = "SELECT p.id as id_publication, c.id as id_account, c.fullname, date_format(p.date_post, '%d/%m/%Y %H:%m:%s') as date_post, p.post, f.photo, p.title, p.portion, p.preparation_time FROM publications p inner join accounts c on p.id_account = c.id left join photo_publications f on p.id = f.id_publication where p.id in (select id_publications from likes where id_account = " + id_user + ") order by p.date_post desc";
 
         db.query(feedQuery, (error, results) => {
             for (var i = 0; i < results.length; i++) {
@@ -295,10 +295,10 @@ module.exports = app => {
                 console.log(converter);
                 results[i].post = converter;*/
             }
-            feed = results;
+            //feed = results;
         });
 
-        response.render('recipe', { feed: feed });
+        response.render('recipe', { feed: results });
     });
 
     app.get('/recipe/:id_publication', (request, response) => {
@@ -314,6 +314,6 @@ module.exports = app => {
             }
         });
 
-        response.render('recipe', { feed: feed });
+        response.redirect('/recipe');
     });
 }
