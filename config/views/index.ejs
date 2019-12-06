@@ -2,38 +2,6 @@
 <html>
 	<head>
 		<% include partials/head %>
-		<!--<meta charset="utf-8">
-		<title>Tompero App</title>-->
-		<style>
-		.login-form {
-			width: 300px;
-			margin: 0 auto;
-			font-family: Tahoma, Geneva, sans-serif;
-		}
-		.login-form h1 {
-			text-align: center;
-			color: #4d4d4d;
-			font-size: 24px;
-			padding: 20px 0 20px 0;
-		}
-		.login-form input[type="password"],
-		.login-form input[type="text"] {
-			width: 100%;
-			padding: 15px;
-			border: 1px solid #dddddd;
-			margin-bottom: 15px;
-			box-sizing:border-box;
-		}		
-		.center {
-			display: block;
-			margin-left: auto;
-			margin-right: auto;
-			//width: 50%;
-		}
-		</style>
-		<!-- Bootstrap core CSS -->
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">    
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	</head>
 	<body class="text-center">
 		<div class="login-form">			
@@ -43,9 +11,11 @@
 				<input type="password" name="password" placeholder="Senha" required>
 				<button type="submit" class="btn btn-primary btn-lg btn-block">Entrar</button>				
 			</form>
+			<div>
 			<form action="new">
 				<button type="submit" class="btn btn-primary btn-lg btn-block">Cadastre-se</button>				
 			</form>
+			</div>
 		</div>
 	<% include partials/footer %>
 </html>
