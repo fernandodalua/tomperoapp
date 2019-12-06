@@ -133,7 +133,11 @@
                 </li>
               </ul>
               <div class="card-body">
-                <button class="btn-danger"><i class="fa fa-heart"></i></button>
+                <form action="/recipe/<%= feed[i].id_publication">
+                  <button class="btn-danger">
+                    <i class="fa fa-heart"></i>
+                  </button>
+                </form>
               </div>
             </div>
           </li>
