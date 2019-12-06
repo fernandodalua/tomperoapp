@@ -18,6 +18,9 @@ body {
   background-color: #f5f5f5;
 }
 
+.button {
+    background-color: #FD5A1E !important;
+}
 
 /* Custom page CSS
 -------------------------------------------------- */
