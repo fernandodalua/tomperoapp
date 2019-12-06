@@ -102,6 +102,7 @@ module.exports = app => {
                     account = results;
                     let feedNews = "SELECT p.id as id_publication, c.id as id_account, c.fullname, date_format(p.date_post, '%d/%m/%Y %H:%m:%s') as date_post, p.post, f.photo, p.title, p.portion, p.preparation_time FROM publications p inner join accounts c on p.id_account = c.id left join photo_publications f on p.id = f.id_publication where c.id != " + results[0].id_user + " order by p.id desc limit 1";
                     db.query(feedNews, (error, result) => {
+                        result[0].post = result[0].post.substring(0, 50);
                         response.render('home', { account: results, feed: feed, news: result });
                     });
                     
