@@ -300,4 +300,11 @@ module.exports = app => {
 
         response.render('recipe', { feed: feed });
     });
+
+    app.get('/recipe/:id_publication', (req, res) => {
+        var id_publication = req.params.id_publication;
+
+        console.log(id_publication);
+        response.render('recipe', { feed: feed });
+    });
 }
