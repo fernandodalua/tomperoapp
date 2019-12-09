@@ -69,7 +69,7 @@ module.exports = app => {
         });
 
         db.query(feedNews, (error, results) => {
-            results[0].post = results[0].post.substring(0, 50);
+            //results[0].post = results[0].post.substring(0, 50);
             news = results;
         });
 
