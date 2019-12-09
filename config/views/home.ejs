@@ -149,6 +149,7 @@
 	      <div class="card-body">
 		      <strong class="d-inline-block mb-2 text-primary">Prato do dia</strong>
 		      <h3 class="mb-0">
+            <% if (news.length > 0) { %>
 		        <a class="text-dark" href="/profile/<%= news[0].id_account %>">
               <%= news[0].fullname %>
             </a>
@@ -159,6 +160,7 @@
   		      <p class="card-text">
               <%- news[0].post %>
             </p>          
+          <%} %>
 		      <a href="#">Continue lendo</a>
 	      </div>
       </div>
